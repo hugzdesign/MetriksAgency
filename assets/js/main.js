@@ -421,7 +421,7 @@
 
   /* Services */
   gsap.from(".sectors__list li", {
-    y: 16, opacity: 0, duration: 0.7, ease: "expo.out", stagger: 0.04,
+    y: 16, opacity: 0, duration: 0.7, ease: "expo.out", stagger: 0.05, clearProps: "transform,opacity",
     scrollTrigger: { trigger: ".sectors", start: "top 85%" }
   });
   ScrollTrigger.batch(".offer__item", {
