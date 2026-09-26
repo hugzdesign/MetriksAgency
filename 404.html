@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Page introuvable — MetriKs</title>
+  <title>Page introuvable · MetriKs</title>
   <meta name="robots" content="noindex" />
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="/assets/css/main.css" />
@@ -11,6 +11,7 @@
     .nf { min-height: 100svh; display: grid; place-content: center; gap: 28px; padding: 40px var(--gutter); text-align: left; max-width: 900px; margin: 0 auto; }
     .nf .code { font-family: var(--f-display); font-weight: 700; color: var(--signal); letter-spacing: .12em; font-size: .8rem; }
     .nf p { color: var(--chalk-2); max-width: 44ch; }
+    .nf__links { display: flex; flex-wrap: wrap; gap: 12px; }
   </style>
 </head>
 <body>
@@ -18,7 +19,7 @@
     <span class="code">ERREUR 404</span>
     <h1 class="h-xl">Cette page <em>n'existe pas.</em></h1>
     <p>Le lien est peut-être ancien ou mal saisi. Le reste du site MetriKs vous attend.</p>
-    <div><a class="btn btn--signal" href="/"><span>Retour à l'accueil</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></div>
+    <div class="nf__links"><a class="btn btn--signal" href="/"><span>Retour à l'accueil</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a><a class="btn btn--line" href="/creation-site-internet/"><span>Création de site</span></a><a class="btn btn--line" href="/contact/"><span>Diagnostic offert</span></a></div>
   </main>
 </body>
 </html>

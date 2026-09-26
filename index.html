@@ -1,17 +1,18 @@
 <!doctype html>
-<html lang="fr" data-style="harmonie">
+<html lang="fr" data-style="harmonie" data-page="accueil">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Création de site internet à Montivilliers et Le Havre · MetriKs Agency</title>
-  <meta name="description" content="Agence web à Montivilliers, près du Havre. MetriKs crée des sites internet sur-mesure, rapides et bien référencés pour les restaurants, artisans, commerces, instituts et clubs sportifs, au Havre comme partout en France." />
+  <title>MetriKs · Agence web à Montivilliers, près du Havre</title>
+  <meta name="description" content="Sites internet et identités visuelles pour les artisans, commerçants et indépendants qui aiment leur métier. Agence web à Montivilliers, près du Havre." />
   <meta name="theme-color" content="#0b0d12" />
-  <meta property="og:title" content="MetriKs Agency · Création de site internet à Montivilliers et Le Havre" />
-  <meta property="og:description" content="Création et refonte de sites web, référencement local et identité visuelle, à Montivilliers et au Havre." />
+  <meta property="og:title" content="MetriKs · Agence web à Montivilliers, près du Havre" />
+  <meta property="og:description" content="Sites internet et identités visuelles pour les artisans, commerçants et indépendants qui aiment leur métier. Agence web à Montivilliers, près du Havre." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://metriksagency.com/" />
   <meta property="og:image" content="https://metriksagency.com/assets/img/og-image.jpg" />
   <meta property="og:locale" content="fr_FR" />
+  <meta property="og:site_name" content="MetriKs Agency" />
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="canonical" href="https://metriksagency.com/" />
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
@@ -20,27 +21,84 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "@id": "https://metriksagency.com/#organization",
-    "name": "MetriKs Agency",
-    "description": "Agence web basée à Montivilliers, près du Havre : création et refonte de sites internet, référencement local et identité visuelle pour les entreprises, commerces, artisans et clubs sportifs, partout en France.",
-    "url": "https://metriksagency.com/",
-    "image": "https://metriksagency.com/assets/img/og-image.jpg",
-    "email": "contact@metriksagency.com",
-    "address": { "@type": "PostalAddress", "addressLocality": "Montivilliers", "postalCode": "76290", "addressRegion": "Normandie", "addressCountry": "FR" },
-    "geo": { "@type": "GeoCoordinates", "latitude": 49.5453, "longitude": 0.1883 },
-    "areaServed": [
-      { "@type": "City", "name": "Montivilliers" },
-      { "@type": "City", "name": "Le Havre" },
-      { "@type": "City", "name": "Harfleur" },
-      { "@type": "City", "name": "Gonfreville-l'Orcher" },
-      { "@type": "City", "name": "Octeville-sur-Mer" },
-      { "@type": "AdministrativeArea", "name": "Seine-Maritime" },
-      { "@type": "AdministrativeArea", "name": "Normandie" },
-      { "@type": "Country", "name": "France" }
-    ],
-    "knowsAbout": ["Création de site internet", "Refonte de site web", "Référencement local", "Identité visuelle"],
-    "sameAs": ["https://institutdebeaute-montivilliers.fr", "https://www.rmcbatiment.fr/"]
+    "@graph": [
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://metriksagency.com/#organization",
+        "name": "MetriKs Agency",
+        "description": "Agence web basée à Montivilliers, près du Havre : création et refonte de sites internet, référencement local et identité visuelle pour les entreprises, commerces, artisans et clubs sportifs, partout en France.",
+        "url": "https://metriksagency.com/",
+        "image": "https://metriksagency.com/assets/img/og-image.jpg",
+        "logo": "https://metriksagency.com/assets/img/apple-touch-icon.png",
+        "email": "contact@metriksagency.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Montivilliers",
+          "postalCode": "76290",
+          "addressRegion": "Normandie",
+          "addressCountry": "FR"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 49.5453,
+          "longitude": 0.1883
+        },
+        "areaServed": [
+          {
+            "@type": "City",
+            "name": "Montivilliers"
+          },
+          {
+            "@type": "City",
+            "name": "Le Havre"
+          },
+          {
+            "@type": "City",
+            "name": "Harfleur"
+          },
+          {
+            "@type": "City",
+            "name": "Gonfreville-l'Orcher"
+          },
+          {
+            "@type": "City",
+            "name": "Octeville-sur-Mer"
+          },
+          {
+            "@type": "AdministrativeArea",
+            "name": "Seine-Maritime"
+          },
+          {
+            "@type": "AdministrativeArea",
+            "name": "Normandie"
+          },
+          {
+            "@type": "Country",
+            "name": "France"
+          }
+        ],
+        "knowsAbout": [
+          "Création de site internet",
+          "Refonte de site web",
+          "Référencement local",
+          "Identité visuelle"
+        ],
+        "sameAs": [
+          "https://institutdebeaute-montivilliers.fr",
+          "https://www.rmcbatiment.fr/"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://metriksagency.com/#website",
+        "url": "https://metriksagency.com/",
+        "name": "MetriKs Agency",
+        "inLanguage": "fr-FR",
+        "publisher": {
+          "@id": "https://metriksagency.com/#organization"
+        }
+      }
+    ]
   }
   </script>
   <link rel="preload" href="assets/fonts/TacticSansExd-Lgt.woff2" as="font" type="font/woff2" crossorigin />
@@ -65,16 +123,26 @@
   </div>
 
   <header class="bug">
-    <a class="bug__brand" href="#top" aria-label="MetriKs, retour en haut">
+    <a class="bug__brand" href="./" aria-label="MetriKs, accueil">
       <span class="wordmark">Metri<span class="k">K</span>s</span>
     </a>
     <nav class="bug__nav" aria-label="Navigation principale">
-      <a href="#services">Services</a>
-      <a href="#realisations">Réalisations</a>
-      <a href="#methode">Méthode</a>
-      <a href="#clubs">Clubs sportifs</a>
+      <div class="drop">
+        <a class="drop__btn" href="#services">Services<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>
+        <div class="drop__panel">
+          <ul>
+            <li><a href="creation-site-internet/"><strong>Création de site internet</strong><small>Un site qui vous ressemble et qui donne envie de vous appeler.</small></a></li>
+            <li><a href="refonte-site-internet/"><strong>Refonte de site</strong><small>Pour donner l'adresse de votre site sans jamais hésiter.</small></a></li>
+            <li><a href="referencement-local/"><strong>Référencement local</strong><small>Quand on cherche votre métier près de chez soi, on tombe sur vous.</small></a></li>
+            <li><a href="identite-visuelle/"><strong>Identité visuelle</strong><small>Une image qu'on reconnaît, de l'enseigne à la carte de visite.</small></a></li>
+          </ul>
+        </div>
+      </div>
+      <a href="realisations/">Réalisations</a>
+      <a href="methode/">Méthode</a>
+      <a href="clubs-sportifs/">Clubs sportifs</a>
     </nav>
-    <a class="bug__cta" href="#contact">Diagnostic offert</a>
+    <a class="bug__cta" href="contact/">Diagnostic offert</a>
     <button class="bug__burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="Ouvrir le menu">
       <i></i><i></i>
     </button>
@@ -83,11 +151,18 @@
 
   <div class="menu" id="menu" hidden>
     <nav aria-label="Menu mobile">
-      <a href="#services">Services</a>
-      <a href="#realisations">Réalisations</a>
-      <a href="#methode">Méthode</a>
-      <a href="#clubs">Clubs sportifs</a>
-      <a href="#contact">Contact</a>
+      <a href="./">Accueil</a>
+      <p class="menu__label">Services</p>
+      <div class="menu__svc">
+        <a href="creation-site-internet/">Création de site</a>
+        <a href="refonte-site-internet/">Refonte de site</a>
+        <a href="referencement-local/">Référencement local</a>
+        <a href="identite-visuelle/">Identité visuelle</a>
+      </div>
+      <a href="realisations/">Réalisations</a>
+      <a href="methode/">Méthode</a>
+      <a href="clubs-sportifs/">Clubs sportifs</a>
+      <a href="contact/">Contact</a>
     </nav>
   </div>
 
@@ -103,21 +178,18 @@
 
       <div class="hero__inner">
         <h1 class="hero__title" id="hero-title">
-          <span class="line"><span>Des sites web</span></span>
-          <span class="line"><span>qui font venir</span></span>
-          <span class="line line--accent"><span><em>vos clients.</em></span></span>
+          <span class="line"><span>Vous faites</span></span>
+          <span class="line"><span>du beau travail.</span></span>
+          <span class="line line--accent"><span><em>Montrez-le.</em></span></span>
         </h1>
         <div class="hero__foot">
           <div class="hero__lead">
             <p class="hero__for">Pour les <span class="rotator" data-rotator><span>restaurants</span></span></p>
-            <p>Agence web basée à Montivilliers, près du Havre, MetriKs conçoit des sites sur-mesure qui <strong class="hl">transforment vos visiteurs en clients</strong>, et une image de marque qui vous rend reconnaissable au premier coup d'œil. Un seul interlocuteur, où que vous soyez en France.</p>
+            <p>Vous avez mis des années à bâtir votre savoir-faire. MetriKs lui construit <strong class="hl">un site à sa hauteur</strong>, celui dont vous donnerez l'adresse avec fierté. Agence web à Montivilliers, près du Havre, pour toute la France.</p>
           </div>
           <div class="hero__actions">
-            <a class="btn btn--signal" href="#contact">
-              <span>Réserver mon diagnostic offert</span>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
-            </a>
-            <a class="btn btn--line" href="#realisations"><span>Voir les réalisations</span></a>
+            <a class="btn btn--signal" href="contact/"><span>Réserver mon diagnostic offert</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a>
+            <a class="btn btn--line" href="realisations/"><span>Voir les réalisations</span></a>
           </div>
         </div>
       </div>
@@ -133,57 +205,39 @@
       </div>
     </section>
 
-    <!-- BAND -->
     <div class="band" aria-hidden="true">
       <div class="band__track">
-        <span>Création de sites</span><b></b><span>Refonte</span><b></b><span>Référencement local</span><b></b><span>Identité visuelle</span><b></b><span>Diagnostic offert</span><b></b>
-        <span>Création de sites</span><b></b><span>Refonte</span><b></b><span>Référencement local</span><b></b><span>Identité visuelle</span><b></b><span>Diagnostic offert</span><b></b>
+        <span>Création de site internet</span><b></b><span>Refonte</span><b></b><span>Référencement local</span><b></b><span>Identité visuelle</span><b></b><span>Espace client</span><b></b>
+        <span>Création de site internet</span><b></b><span>Refonte</span><b></b><span>Référencement local</span><b></b><span>Identité visuelle</span><b></b><span>Espace client</span><b></b>
       </div>
     </div>
+
+    <!-- MANIFESTE -->
+    <section class="manifesto" aria-label="Pourquoi votre site compte">
+      <div class="wrap">
+        <p class="manifesto__text" data-words>Ce soir, quelqu'un cherche votre métier sur son téléphone, depuis son canapé. Votre accueil, votre sourire, la qualité de votre travail : il n'en sait rien. Il ouvre votre site. <em>Trois secondes plus tard,</em> il sait s'il vous appelle.</p>
+        <p class="manifesto__end">MetriKs travaille sur ces trois secondes. <strong class="hl">Le reste, vous savez déjà le faire.</strong></p>
+      </div>
+    </section>
 
     <!-- SERVICES -->
     <section class="services" id="services" aria-labelledby="services-title">
       <div class="wrap services__grid">
         <div class="services__aside">
           <h2 class="h-xl split" id="services-title">Être trouvé.<br /><em>Être choisi.</em></h2>
-          <p class="services__intro">Avant d'appeler, votre futur client compare trois sites sur son téléphone. Il retiendra celui qui lui inspire confiance en quelques secondes. <strong class="hl">Avec MetriKs, ce sera le vôtre.</strong></p>
+          <p class="services__intro">MetriKs s'occupe de tout ce qui se passe avant le premier coup de fil : ce qu'on trouve sur Google, et <strong class="hl">ce qu'on ressent en découvrant votre site.</strong></p>
           <div class="services__screens" aria-hidden="true">
             <div class="services__screen" data-mock="0"></div>
             <div class="services__screen services__screen--b" data-mock="1"></div>
           </div>
         </div>
-
         <div class="services__main">
-          <div class="sectors">
-            <h3 class="sectors__title">MetriKs travaille avec</h3>
-            <ul class="sectors__list">
-              <li><span class="sectors__n">01</span><strong>Restaurants et bars</strong><small>Carte, réservation, avis clients</small></li>
-              <li><span class="sectors__n">02</span><strong>Artisans et BTP</strong><small>Chantiers réalisés, devis, zone d'intervention</small></li>
-              <li><span class="sectors__n">03</span><strong>Beauté et <span class="nw">bien-être</span></strong><small>Prestations, tarifs, prise de rendez-vous</small></li>
-              <li><span class="sectors__n">04</span><strong>Commerces</strong><small>Horaires, produits, itinéraire</small></li>
-              <li><span class="sectors__n">05</span><strong>Professions libérales</strong><small>Expertise, confiance, prise de contact</small></li>
-              <li class="sectors__club"><a href="#clubs"><span class="sectors__n">06</span><strong>Clubs sportifs</strong><small>Affiches, identité, site du club</small></a></li>
-            </ul>
-          </div>
-
-          <ol class="offer">
-            <li class="offer__item">
-              <h3>Création de site vitrine</h3>
-              <p>Votre vitrine, ouverte jour et nuit. Un site dessiné pour votre métier, rapide et impeccable sur mobile, où vos clients comprennent en quelques secondes ce que vous proposez et <strong class="hl">comment vous joindre.</strong></p>
-            </li>
-            <li class="offer__item">
-              <h3>Refonte de site</h3>
-              <p>Un site daté fait fuir les clients avant même qu'ils vous appellent. MetriKs lui redonne une allure actuelle et un parcours clair, <strong class="hl">sans perdre la place déjà gagnée sur Google.</strong></p>
-            </li>
-            <li class="offer__item">
-              <h3>Référencement local</h3>
-              <p>Quand quelqu'un cherche « plombier Le Havre » ou « restaurant Marseille », <strong class="hl">c'est vous qu'il doit trouver.</strong> MetriKs travaille votre site et votre fiche Google pour vous placer devant vos concurrents, là où vos clients cherchent.</p>
-            </li>
-            <li class="offer__item">
-              <h3>Identité visuelle</h3>
-              <p>Un logo, des couleurs et une typographie qui vous ressemblent, déclinés du site à la carte de visite en passant par la vitrine. <strong class="hl">Une image soignée inspire confiance</strong> avant même le premier échange.</p>
-            </li>
-          </ol>
+          <ul class="svc">
+          <li><a class="svc__row" href="creation-site-internet/"><span class="svc__name">Création de site internet</span><span class="svc__line">Un site qui vous ressemble et qui donne envie de vous appeler.</span><span class="svc__go" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span></a></li>
+          <li><a class="svc__row" href="refonte-site-internet/"><span class="svc__name">Refonte de site</span><span class="svc__line">Pour donner l'adresse de votre site sans jamais hésiter.</span><span class="svc__go" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span></a></li>
+          <li><a class="svc__row" href="referencement-local/"><span class="svc__name">Référencement local</span><span class="svc__line">Quand on cherche votre métier près de chez soi, on tombe sur vous.</span><span class="svc__go" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span></a></li>
+          <li><a class="svc__row" href="identite-visuelle/"><span class="svc__name">Identité visuelle</span><span class="svc__line">Une image qu'on reconnaît, de l'enseigne à la carte de visite.</span><span class="svc__go" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span></a></li>
+        </ul>
         </div>
       </div>
     </section>
@@ -196,6 +250,7 @@
           <p>Chaque site MetriKs part de votre métier et de vos clients, avec un seul objectif : que la personne qui le visite <strong class="hl">décroche son téléphone ou pousse votre porte.</strong></p>
         </div>
         <ol class="projects" data-projects></ol>
+        <div class="more"><a class="btn btn--line" href="realisations/"><span>Toutes les réalisations</span></a></div>
       </div>
       <div class="preview" aria-hidden="true"><div class="preview__inner"></div></div>
     </section>
@@ -203,32 +258,20 @@
     <!-- METHODE -->
     <section class="plan" id="methode" aria-labelledby="plan-title">
       <div class="wrap">
-        <h2 class="h-xl split" id="plan-title">Comment ça <em>se passe.</em></h2>
+        <div class="sites__head">
+          <h2 class="h-xl split" id="plan-title">Vous savez toujours<br />où en est <em>votre site.</em></h2>
+          <p>Avec MetriKs, vous avez votre propre espace client. <strong class="hl">Vous suivez l'avancée en direct</strong>, vous envoyez vos photos et vous posez vos questions au même endroit.</p>
+        </div>
         <div class="timeline">
           <div class="timeline__track" aria-hidden="true"><i data-timeline></i></div>
           <ol class="timeline__steps">
-            <li class="step">
-              <span class="step__min">Étape 1</span>
-              <h3>Diagnostic offert</h3>
-              <p>45 minutes pour regarder ensemble votre présence en ligne, vos concurrents et ce qui vous fait perdre des clients. <strong class="hl">Sans engagement.</strong></p>
-            </li>
-            <li class="step">
-              <span class="step__min">Étape 2</span>
-              <h3>Maquette</h3>
-              <p>MetriKs dessine votre futur site. Vous le voyez et le validez <strong class="hl">avant la moindre ligne de code.</strong></p>
-            </li>
-            <li class="step">
-              <span class="step__min">Étape 3</span>
-              <h3>Développement</h3>
-              <p>Textes, images, pages, référencement. Vous suivez l'avancée et validez chaque étape.</p>
-            </li>
-            <li class="step">
-              <span class="step__min">Étape 4</span>
-              <h3>Mise en ligne et suivi</h3>
-              <p>Votre site est publié, vous savez le faire vivre, et MetriKs <strong class="hl">reste à vos côtés</strong> après la livraison.</p>
-            </li>
+            <li class="step"><span class="step__min">Étape 1</span><h3>Diagnostic offert</h3><p>45 minutes pour parler de vous, de vos clients et de ce qui vous freine.</p></li>
+            <li class="step"><span class="step__min">Étape 2</span><h3>Maquette</h3><p>Vous voyez votre futur site <strong class="hl">avant la moindre ligne de code.</strong></p></li>
+            <li class="step"><span class="step__min">Étape 3</span><h3>Développement</h3><p>Vous suivez chaque avancée depuis votre espace client.</p></li>
+            <li class="step"><span class="step__min">Étape 4</span><h3>Mise en ligne et suivi</h3><p>Votre site part en ligne. MetriKs <strong class="hl">reste joignable</strong> depuis votre espace.</p></li>
           </ol>
         </div>
+        <div class="more"><a class="btn btn--line" href="methode/"><span>La méthode et l'espace client</span></a></div>
       </div>
     </section>
 
@@ -236,44 +279,23 @@
     <section class="clubs" id="clubs" aria-labelledby="clubs-title">
       <div class="wrap clubs__head">
         <h2 class="h-xl split" id="clubs-title">Les clubs aussi<br />ont leur <em>vitrine.</em></h2>
-        <p>Affiches jour de match, compositions, scores, rebranding complet et site du club : MetriKs donne aux clubs sportifs <strong class="hl">une image à la hauteur de leurs ambitions.</strong> Cliquez sur un visuel pour l'agrandir.</p>
+        <p>Le jour de match, vos supporters découvrent votre affiche avant d'entrer dans le stade. MetriKs la dessine pour qu'ils aient <strong class="hl">hâte d'y être.</strong> Affiches, rebranding complet et site du club.</p>
       </div>
-
       <div class="reel" data-reel aria-label="Affiches sport réalisées par MetriKs">
         <div class="reel__track" data-reel-track></div>
       </div>
-
-      <div class="wrap ids">
-        <div class="ids__tabs" role="tablist" aria-label="Choisir un rebranding"></div>
-        <div class="ids__stage">
-          <aside class="ids__card" aria-live="polite">
-            <img class="ids__logo" src="assets/img/logos/hac.png" alt="" width="120" height="120" />
-            <h3 class="ids__name" data-club-name>Le Havre AC</h3>
-            <p class="ids__sport" data-club-sport>Football · Rebranding</p>
-            <p class="ids__desc" data-club-desc></p>
-            <dl class="ids__stats">
-              <div><dt>Formats</dt><dd data-club-count>13</dd></div>
-              <div><dt>Déclinaisons</dt><dd data-club-kinds>Post</dd></div>
-            </dl>
-            <button class="ids__all" type="button" data-club-all>Voir tous les formats</button>
-          </aside>
-          <div class="ids__grid" data-club-grid></div>
-        </div>
-      </div>
+      <div class="wrap more"><a class="btn btn--line" href="clubs-sportifs/"><span>Voir le travail pour les clubs</span></a></div>
     </section>
 
     <!-- CONTACT -->
-    <section class="contact" id="contact" aria-labelledby="contact-title">
+    <section class="contact" aria-labelledby="contact-title">
       <div class="contact__lines" aria-hidden="true"></div>
       <div class="wrap contact__inner">
         <h2 class="contact__title split" id="contact-title">Votre prochain client vous cherche <em>déjà.</em></h2>
         <div class="contact__body">
-          <p>Réservez votre diagnostic offert : <strong class="hl">45 minutes pour faire le point</strong> sur votre site, votre image et les priorités à traiter. Basée à Montivilliers, près du Havre, MetriKs travaille avec des entreprises <strong class="hl">partout en France</strong>, sur place ou en visio. Sans engagement.</p>
+          <p>Réservez votre diagnostic offert : <strong class="hl">45 minutes pour faire le point</strong> sur votre site, votre image et ce qui vous freine. En rendez-vous près du Havre ou en visio, où que vous soyez. Sans engagement.</p>
           <div class="contact__actions">
-            <a class="btn btn--ink" href="mailto:contact@metriksagency.com?subject=Diagnostic%20offert%20-%20MetriKs&amp;body=Bonjour%2C%0A%0AJe%20souhaite%20r%C3%A9server%20un%20diagnostic%20offert.%0A%0AEntreprise%20%3A%20%0AActivit%C3%A9%20%3A%20%0ASite%20actuel%20(s%27il%20existe)%20%3A%20%0AT%C3%A9l%C3%A9phone%20%3A%20%0A">
-              <span>Réserver mon diagnostic</span>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
-            </a>
+            <a class="btn btn--ink" href="contact/"><span>Réserver mon diagnostic</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a>
             <button class="copy" type="button" data-copy="contact@metriksagency.com">
               <span data-copy-label>contact@metriksagency.com</span>
               <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="1"/><path d="M16 8V4H4v12h4"/></svg>
@@ -285,10 +307,35 @@
   </main>
 
   <footer class="foot">
+    <div class="wrap foot__grid">
+      <div class="foot__brand">
+        <a class="wordmark" href="./">Metri<span class="k">K</span>s</a>
+        <p>Agence web basée à Montivilliers, près du Havre. Sites internet et identités visuelles pour des clients partout en France.</p>
+      </div>
+      <nav class="foot__col" aria-label="Services">
+        <p>Services</p>
+        <a href="creation-site-internet/">Création de site internet</a>
+        <a href="refonte-site-internet/">Refonte de site</a>
+        <a href="referencement-local/">Référencement local</a>
+        <a href="identite-visuelle/">Identité visuelle</a>
+      </nav>
+      <nav class="foot__col" aria-label="Agence">
+        <p>Agence</p>
+        <a href="realisations/">Réalisations</a>
+        <a href="methode/">Méthode et espace client</a>
+        <a href="clubs-sportifs/">Clubs sportifs</a>
+        <a href="contact/">Diagnostic offert</a>
+      </nav>
+      <div class="foot__col">
+        <p>Contact</p>
+        <a href="mailto:contact@metriksagency.com">contact@metriksagency.com</a>
+        <span>Montivilliers (76290), près du Havre</span>
+        <span>Rendez-vous sur place ou en visio</span>
+      </div>
+    </div>
     <div class="wrap foot__row">
-      <p>MetriKs Agency · Agence web basée à Montivilliers, près du Havre</p>
-      <p>Entreprises, commerces, artisans et clubs sportifs, partout en France</p>
-      <p>© <span data-year>2026</span> MetriKs</p>
+      <p>© <span data-year>2026</span> MetriKs Agency</p>
+      <p>Création de site internet au Havre, à Montivilliers et partout en France</p>
     </div>
     <div class="foot__giant" aria-hidden="true">Metri<span class="k">K</span>s</div>
   </footer>
