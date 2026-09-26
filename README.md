@@ -8,7 +8,7 @@ Le site compte neuf pages. L'accueil présente MetriKs en quelques sections cour
 
 ## Ouvrir le site sur votre ordinateur
 
-Les pages vivent dans des dossiers : un double-clic sur un fichier n'affiche donc pas tout correctement, et le navigateur bloque la galerie 3D de l'accueil. Lancez plutôt un petit serveur local. Dans le Terminal, tapez "cd" suivi d'un espace, glissez le dossier du site dans la fenêtre, validez, puis tapez "python3 -m http.server 8000" et ouvrez http://localhost:8000.
+Un double-clic sur index.html ouvre le site, et les liens mènent à toutes les pages. Seule la galerie 3D de l'accueil reste bloquée par le navigateur : une image fixe la remplace. Pour la voir, lancez un petit serveur local. Dans le Terminal, tapez "cd" suivi d'un espace, glissez le dossier du site dans la fenêtre, validez, puis tapez "python3 -m http.server 8000" et ouvrez http://localhost:8000.
 
 ## Modifier les textes
 

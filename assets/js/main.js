@@ -18,6 +18,18 @@
     set: function (k, v) { try { window.sessionStorage.setItem(k, v); } catch (e) { /* navigation privée */ } }
   };
 
+  // Site ouvert par double-clic (file://) : le navigateur n'ouvre pas seul l'index.html
+  // d'un dossier, on complète donc les liens internes pour que chaque page s'affiche.
+  if (location.protocol === "file:") {
+    $$("a[href]").forEach(function (a) {
+      var h = a.getAttribute("href");
+      if (!h || /^(https?:|mailto:|tel:|#)/.test(h)) return;
+      var i = h.indexOf("#");
+      var path = i < 0 ? h : h.slice(0, i), hash = i < 0 ? "" : h.slice(i);
+      if (/\/$/.test(path)) a.setAttribute("href", path + "index.html" + hash);
+    });
+  }
+
   var posterSrc = function (p, w) { return B + "assets/img/posters/" + p.file + "-" + w + ".webp"; };
   var LABELS = {
     "jour-de-match": "Jour de match", "groupe": "Le groupe", "compo1": "Composition", "compo2": "Composition, variante",
