@@ -977,3 +977,32 @@ html[data-palette="doux"] {
 }
 .menu__label { margin-top: 10px; font-family: var(--f-display); font-size: .7rem; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: color-mix(in srgb, var(--on-signal) 70%, transparent); }
 .menu__svc { margin-top: 6px; }
+
+/* ==========================================================================
+   Fonds alternés : blanc cassé et anthracite
+   ========================================================================== */
+.tone-light {
+  --ink: #f6f4ef; --ink-2: #ece9e2; --ink-3: #e3dfd6;
+  --chalk: #101217; --chalk-2: #3b3e46; --mute: #676b74;
+  --line: rgba(16, 18, 23, .11); --line-strong: rgba(16, 18, 23, .22);
+  --signal: #e8480e; --signal-2: #c2410c;
+  background: var(--ink); color: var(--chalk); border-top-color: transparent;
+}
+.tone-graphite {
+  --ink: #1f2228; --ink-2: #272b32; --ink-3: #30353d;
+  --mute: #a3a8b2;
+  --line: rgba(238, 236, 230, .15); --line-strong: rgba(238, 236, 230, .3);
+  background: var(--ink); color: var(--chalk); border-top-color: transparent;
+}
+.tone-light ::selection { background: var(--signal); color: #fff; }
+.tone-light :is(.services__screen, .stack figure, .case__shot, .preview__inner) { box-shadow: 0 24px 50px rgba(16, 18, 23, .16); }
+.tone-light .sectors__list li { background: #fff; }
+.tone-light .sectors__list li:hover { background: #fff; border-color: rgba(16, 18, 23, .4); }
+.tone-light .sectors__list .sectors__club { background: #fff3ec; border-color: var(--signal); }
+.tone-light .btn--signal { --fill: var(--chalk); }
+.tone-light .btn--signal:hover { --fg: #f6f4ef; }
+.tone-light .case__tags li, .tone-light .faq__icon { background: #fff; }
+.tone-light .faq__item[open] .faq__icon { background: var(--signal); }
+.tone-light .space__ico, .tone-graphite .space__ico { background: color-mix(in srgb, var(--signal) 14%, transparent); }
+.tone-light .manifesto__text em { color: var(--signal); }
+.tone-light .trio .poster, .tone-light .project__thumb { box-shadow: 0 20px 40px rgba(16, 18, 23, .14); }

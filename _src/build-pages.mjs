@@ -331,6 +331,16 @@ const visTicket = () => `<div class="ticket">
 /* ------------------------------------------------------------------ */
 /* Gabarit de page                                                     */
 /* ------------------------------------------------------------------ */
+// Alternance des fonds : blanc cassé puis anthracite, section après section.
+// Les en-têtes, les affiches des clubs et le bloc contact gardent leur fond.
+function tones(html) {
+  let i = 0;
+  return html.replace(/<(section|article) class="([^"]*)"/g, (m, tag, cls) => {
+    if (/\b(hero|phero|contact|clubs|cases)\b/.test(cls)) return m;
+    return `<${tag} class="${cls} ${i++ % 2 === 0 ? "tone-light" : "tone-graphite"}"`;
+  });
+}
+
 function page({ slug, title, desc, current, main, schema = [], home = false, bandWords }) {
   const B = slug ? "../" : "";
   const url = SITE + (slug ? slug + "/" : "");
@@ -384,7 +394,7 @@ function page({ slug, title, desc, current, main, schema = [], home = false, ban
   ${header(B, current || slug)}
 
   <main id="contenu">
-    ${main(B)}
+    ${tones(main(B))}
   </main>
 
   ${footer(B)}
