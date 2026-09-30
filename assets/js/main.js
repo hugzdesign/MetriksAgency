@@ -55,7 +55,8 @@
   if (reelTrack) {
     var posterFig = function (p, i, hidden) {
       var tall = p.ratio > 1.3;
-      return '<figure class="poster' + (tall ? " poster--tall" : "") + '"' + (hidden ? ' aria-hidden="true"' : ' tabindex="0" role="button" aria-label="Agrandir : ' + esc(p.title) + '"') + ' data-lb="matchday" data-i="' + i + '">' +
+      return '<figure class="poster' + (tall ? " poster--tall" : "") + '"' + (hidden ? ' aria-hidden="true"' : "") + '>' +
+        (hidden ? "" : '<button type="button" class="poster__hit" aria-label="Agrandir : ' + esc(p.title) + '" data-lb="matchday" data-i="' + i + '"></button>') +
         '<img src="' + posterSrc(p, 640) + '" alt="' + (hidden ? "" : "Affiche " + esc(p.title) + " (" + esc(p.sport) + ")") + '" loading="lazy" decoding="async" width="640" height="' + (tall ? 1138 : 800) + '">' +
         '<figcaption><b>' + esc(p.title) + '</b><span>' + esc(p.sport) + '</span></figcaption></figure>';
     };
@@ -102,7 +103,8 @@
         $("[data-club-kinds]").textContent = c.stories.length ? "Post · Story" : "Post";
         $("[data-club-all]").textContent = "Voir les " + all.length + " formats";
         grid.innerHTML = all.slice(0, CLUB_VISIBLE).map(function (o, j) {
-          return '<figure class="poster' + (o.tall ? " poster--tall" : "") + '" tabindex="0" role="button" aria-label="Agrandir le visuel ' + (j + 1) + '" data-lb="club" data-i="' + j + '">' +
+          return '<figure class="poster' + (o.tall ? " poster--tall" : "") + '">' +
+            '<button type="button" class="poster__hit" aria-label="Agrandir le visuel ' + (j + 1) + '" data-lb="club" data-i="' + j + '"></button>' +
             '<img src="' + clubSrc(c, o.f, 640) + '" alt="' + esc(c.name) + ' : ' + esc(label(o.f)) + '" loading="lazy" decoding="async" width="640" height="' + (o.tall ? 1138 : 800) + '">' +
             '<figcaption><b>' + esc(label(o.f)) + '</b><span>' + esc(c.short) + '</span></figcaption></figure>';
         }).join("");
@@ -201,10 +203,6 @@
   document.addEventListener("click", function (e) {
     var f = e.target.closest("[data-lb]");
     if (f) openFrom(f);
-  });
-  document.addEventListener("keydown", function (e) {
-    var f = e.target.closest && e.target.closest("[data-lb]");
-    if (f && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); openFrom(f); }
   });
 
   /* ------------------------------------------------------------------ */
@@ -628,7 +626,12 @@
     /* Manifeste : les mots s'allument au fil de la lecture */
     var mf = $("[data-words]");
     if (mf) {
-      var words = SplitText.create(mf, { type: "words", wordsClass: "w" });
+      /* Copie lisible par les lecteurs d'écran, le texte découpé est masqué pour eux */
+      var sr = document.createElement("p");
+      sr.className = "sr-only";
+      sr.textContent = mf.textContent;
+      mf.parentNode.insertBefore(sr, mf);
+      var words = SplitText.create(mf, { type: "words", wordsClass: "w", aria: "hidden" });
       gsap.fromTo(words.words, { opacity: 0.14 }, {
         opacity: 1, ease: "none", stagger: 0.1,
         scrollTrigger: { trigger: mf, start: "top 78%", end: "bottom 45%", scrub: true }
@@ -646,6 +649,17 @@
   if (lenis) lenis.on("scroll", function (l) {
     if (bandAnim) bandAnim.playbackRate = 1 + Math.min(Math.abs(l.velocity) * 0.08, 5);
     if (reelAnim) reelAnim.playbackRate = 1 + Math.min(Math.abs(l.velocity) * 0.06, 4);
+  });
+  /* Clavier : l'affiche qui reçoit le focus est ramenée dans le bandeau visible */
+  if (reelAnim && reelTrack) reelTrack.addEventListener("focusin", function (e) {
+    var box = reelTrack.parentNode.getBoundingClientRect();
+    var r = e.target.getBoundingClientRect();
+    var margin = box.width * 0.08;
+    var dx = r.left < box.left + margin ? r.left - box.left - margin : r.right > box.right - margin ? r.right - box.right + margin : 0;
+    if (!dx) return;
+    var dur = reelAnim.effect.getTiming().duration;
+    var pxPerMs = (reelTrack.scrollWidth / 2) / dur;
+    reelAnim.currentTime = (((reelAnim.currentTime + dx / pxPerMs) % dur) + dur) % dur;
   });
 
   /* Apparitions */
