@@ -4,7 +4,7 @@ Site en ligne : https://metriksagency.com/
 
 ## Les pages
 
-Le site compte neuf pages. L'accueil présente MetriKs en quelques sections courtes et renvoie vers une page par sujet : création de site internet, refonte, référencement local, identité visuelle, réalisations, méthode et espace client, clubs sportifs, contact. Chaque page a son adresse propre (par exemple metriksagency.com/referencement-local/), son titre Google, sa description et ses données structurées. Le fichier sitemap.xml liste toutes les pages pour Google.
+Le site compte dix pages. L'accueil présente MetriKs en quelques sections courtes et renvoie vers une page par sujet : création de site internet, création de site en Normandie, refonte, référencement local, identité visuelle, réalisations, méthode et espace client, clubs sportifs, contact. Chaque page a son adresse propre (par exemple metriksagency.com/referencement-local/), son titre Google, sa description et ses données structurées. Le fichier sitemap.xml liste toutes les pages pour Google.
 
 ## Ouvrir le site sur votre ordinateur
 

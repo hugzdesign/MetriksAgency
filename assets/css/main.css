@@ -1007,3 +1007,14 @@ html[data-palette="doux"] {
 .tone-light .space__ico, .tone-graphite .space__ico { background: color-mix(in srgb, var(--signal) 14%, transparent); }
 .tone-light .manifesto__text em { color: var(--signal); }
 .tone-light .trio .poster, .tone-light .project__thumb { box-shadow: 0 20px 40px rgba(16, 18, 23, .14); }
+
+/* Communes desservies, téléphone */
+.zones { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.zones li { padding: 7px 14px; border: 1px solid var(--line-strong); border-radius: 999px; font-size: .88rem; color: var(--chalk-2); }
+.zones__all { border-color: var(--signal) !important; }
+.zones__all a { color: var(--signal-2); font-weight: 600; }
+.zones__all:hover { background: color-mix(in srgb, var(--signal) 10%, transparent); }
+.tone-light .zones li { background: #fff; }
+.contact a.copy svg, .btn svg path { stroke-linejoin: round; }
+.menu__tel { display: inline-flex !important; align-items: center; gap: 10px; margin-top: 14px; font-family: var(--f-body) !important; font-size: 1.15rem !important; font-weight: 700 !important; letter-spacing: 0 !important; }
+.menu__tel svg { font-size: 1.1em; stroke-width: 2.2; }

@@ -24,6 +24,9 @@ const hl = (t) => `<strong class="hl">${t}</strong>`;
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 const strip = (s) => s.replace(/<[^>]+>/g, "");
 const EMAIL = "contact@metriksagency.com";
+const PHONE = "06 47 96 20 37";
+const TEL = "tel:+33647962037";
+const PHONE_ICO = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>';
 const MAILTO = "mailto:contact@metriksagency.com?subject=Diagnostic%20offert%20-%20MetriKs&amp;body=Bonjour%2C%0A%0AJe%20souhaite%20r%C3%A9server%20un%20diagnostic%20offert.%0A%0AEntreprise%20%3A%20%0AActivit%C3%A9%20%3A%20%0AVille%20%3A%20%0ASite%20actuel%20(s%27il%20existe)%20%3A%20%0AT%C3%A9l%C3%A9phone%20%3A%20%0A";
 
 const SERVICES = [
@@ -99,6 +102,7 @@ ${SERVICES.map((s) => `        <a href="${B}${s.slug}/">${s.menu}</a>`).join("\n
       <a href="${B}methode/">Méthode</a>
       <a href="${B}clubs-sportifs/">Clubs sportifs</a>
       <a href="${B}contact/">Contact</a>
+      <a class="menu__tel" href="${TEL}">${PHONE_ICO}<span>${PHONE}</span></a>
     </nav>
   </div>`;
 }
@@ -119,10 +123,12 @@ ${SERVICES.map((s) => `        <a href="${B}${s.slug}/">${s.name}</a>`).join("\n
         <a href="${B}realisations/">Réalisations</a>
         <a href="${B}methode/">Méthode et espace client</a>
         <a href="${B}clubs-sportifs/">Clubs sportifs</a>
+        <a href="${B}creation-site-internet-normandie/">Création de site en Normandie</a>
         <a href="${B}contact/">Diagnostic offert</a>
       </nav>
       <div class="foot__col">
         <p>Contact</p>
+        <a href="${TEL}">${PHONE}</a>
         <a href="mailto:${EMAIL}">${EMAIL}</a>
         <span>Montivilliers (76290), près du Havre</span>
         <span>Rendez-vous sur place ou en visio</span>
@@ -171,6 +177,7 @@ function contactCta(B, text) {
           <p>${text || `Réservez votre diagnostic offert : ${hl("45 minutes pour faire le point")} sur votre site, votre image et ce qui vous freine. En rendez-vous près du Havre ou en visio, où que vous soyez. Sans engagement.`}</p>
           <div class="contact__actions">
             <a class="btn btn--ink" href="${B}contact/"><span>Réserver mon diagnostic</span>${ARROW}</a>
+            <a class="copy" href="${TEL}"><span>${PHONE}</span>${PHONE_ICO}</a>
             <button class="copy" type="button" data-copy="${EMAIL}">
               <span data-copy-label>${EMAIL}</span>
               <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="1"/><path d="M16 8V4H4v12h4"/></svg>
@@ -225,6 +232,11 @@ function section({ id, cls = "", title, intro, content }) {
         ${content}
       </div>
     </section>`;
+}
+
+const ZONES = ["Le Havre", "Montivilliers", "Harfleur", "Sainte-Adresse", "Gonfreville-l'Orcher", "Octeville-sur-Mer", "Épouville", "Fontaine-la-Mallet", "Saint-Romain-de-Colbosc", "Étretat", "Fécamp"];
+function zones(B) {
+  return `<ul class="zones" aria-label="Communes où intervient MetriKs">${ZONES.map((z) => `<li>${z}</li>`).join("")}<li class="zones__all"><a href="${B}creation-site-internet-normandie/">Toute la Normandie</a></li></ul>`;
 }
 
 function faq(items) {
@@ -426,6 +438,8 @@ const ORG = {
   image: SITE + "assets/img/og-image.jpg",
   logo: SITE + "assets/img/apple-touch-icon.png",
   email: EMAIL,
+  telephone: "+33 6 47 96 20 37",
+  contactPoint: { "@type": "ContactPoint", telephone: "+33 6 47 96 20 37", email: EMAIL, contactType: "customer service", areaServed: "FR", availableLanguage: "French" },
   address: { "@type": "PostalAddress", addressLocality: "Montivilliers", postalCode: "76290", addressRegion: "Normandie", addressCountry: "FR" },
   geo: { "@type": "GeoCoordinates", latitude: 49.5453, longitude: 0.1883 },
   areaServed: [
@@ -584,6 +598,7 @@ const creaFaq = [
   ["Combien coûte la création d'un site internet ?", "Le prix dépend du nombre de pages et des fonctionnalités dont vous avez besoin. Après le diagnostic offert, MetriKs vous envoie un devis clair, sans engagement."],
   ["Combien de temps faut-il pour créer mon site ?", "Le délai dépend de la taille du site et du temps qu'il faut pour réunir vos textes et vos photos. MetriKs vous donne un calendrier dès le départ, et vous suivez chaque étape dans votre espace client."],
   ["Je ne suis pas en Normandie. MetriKs peut-il créer mon site ?", "Oui. MetriKs est basé à Montivilliers, près du Havre, et travaille avec des entreprises partout en France. Les rendez-vous se font en visio et le suivi passe par votre espace client."],
+  ["Pourquoi choisir une agence web près du Havre ?", "Vous gardez un interlocuteur qui connaît votre ville et vos clients. MetriKs vous rencontre, comprend votre métier et reste joignable après la mise en ligne, au téléphone comme dans votre espace client."],
   ["Mon site sera-t-il visible sur Google ?", "MetriKs construit chaque site sur les bases du référencement : une structure propre, des titres et des descriptions soignés, des pages rapides. Pour ressortir dans votre ville, le <a href=\"../referencement-local/\">référencement local</a> va plus loin."],
 ];
 pages.push({
@@ -608,6 +623,16 @@ pages.push({
         `Votre futur client regarde votre site avant de le lire. Les photos, les couleurs et la place de votre numéro lui disent en un instant ${hl("s'il peut vous faire confiance.")}`,
         "MetriKs part de ce que vous faites de mieux et le met en scène. Vos chantiers, vos plats, vos soins : ce sont eux qui convainquent. Le site leur donne toute la place.",
       ],
+    })}
+
+    ${feel({
+      id: "le-havre",
+      title: "Au Havre et à Montivilliers,<br /><em>à deux pas de chez vous.</em>",
+      body: [
+        `MetriKs est installé à Montivilliers, aux portes du Havre. Vous préférez parler de votre projet en face ? MetriKs peut venir vous voir ${hl("dans votre boutique, votre atelier ou votre cabinet.")}`,
+        `Vos clients tapent votre métier suivi de leur ville. MetriKs écrit votre site avec leurs mots et le relie à votre fiche Google, pour que vous sortiez ${hl("dans les résultats comme sur la carte.")}`,
+      ],
+      aside: zones(B),
     })}
 
     ${section({
@@ -648,6 +673,84 @@ pages.push({
     ${section({ id: "questions", title: "Vos <em>questions.</em>", content: faq(creaFaq) })}
 
     ${related(B, "creation-site-internet")}
+
+    ${contactCta(B)}`,
+});
+
+/* ---------------- Création de site en Normandie ---------------- */
+const normFaq = [
+  ["Une agence web normande, qu'est-ce que ça change ?", "Vous parlez à quelqu'un qui connaît votre région et vos clients. Vous gardez le même interlocuteur du premier rendez-vous au suivi, et vous pouvez le joindre au téléphone."],
+  ["MetriKs travaille-t-il à Rouen, Caen ou Cherbourg ?", "Oui. MetriKs accompagne des entreprises dans toute la Normandie. Les rendez-vous se font sur place autour du Havre et en visio ailleurs, et vous suivez votre projet depuis votre espace client."],
+  ["Mon site sera-t-il visible dans ma ville ?", "Chaque site MetriKs part sur les bases du référencement. Pour ressortir dans votre ville et sur Google Maps, MetriKs travaille aussi votre fiche Google, vos avis et des pages pour vos communes. Voir le <a href=\"../referencement-local/\">référencement local</a>."],
+  ["Combien coûte un site internet en Normandie ?", "Le prix dépend du nombre de pages et de vos besoins, pas de votre ville. Après le diagnostic offert, MetriKs vous envoie un devis clair, sans engagement."],
+];
+pages.push({
+  slug: "creation-site-internet-normandie",
+  title: "Création de site internet en Normandie · MetriKs",
+  desc: "Création de site internet sur-mesure en Normandie, du Havre à Rouen, Caen ou Évreux. Une agence normande, un site rapide et visible sur Google.",
+  schema: [
+    crumbsLd("creation-site-internet-normandie", "Création de site internet en Normandie"),
+    {
+      "@type": "Service", name: "Création de site internet en Normandie",
+      description: "Création de sites internet sur-mesure pour les entreprises de Normandie : Seine-Maritime, Eure, Calvados, Manche et Orne.",
+      url: SITE + "creation-site-internet-normandie/", provider: { "@id": SITE + "#organization" },
+      areaServed: [{ "@type": "AdministrativeArea", name: "Normandie" }, { "@type": "City", name: "Le Havre" }, { "@type": "City", name: "Rouen" }, { "@type": "City", name: "Caen" }, { "@type": "City", name: "Évreux" }, { "@type": "City", name: "Cherbourg-en-Cotentin" }],
+    },
+    faqLd(normFaq),
+  ],
+  main: (B) => `${phero({
+    B, kind: "stack", kw: "Création de site internet en Normandie", crumb: "Création de site en Normandie",
+    lines: ["Ici, on vous connaît.", "Sur Google, <em>pas encore.</em>"],
+    lead: `Le bouche-à-oreille vous a fait grandir. Aujourd'hui, vos futurs clients de Rouen, de Caen ou d'Évreux vous cherchent d'abord sur leur téléphone. MetriKs, agence web normande installée à Montivilliers, crée ${hl("le site qui prend le relais de votre réputation.")}`,
+    ctas: btn(B + "contact/", "Réserver mon diagnostic") + btn(B + "realisations/", "Voir les réalisations", "line"),
+    visual: visStack(B, ["rmc-batiment-3.webp", "Site de RMC Bâtiment, entreprise de maçonnerie à Évreux"], ["institut-beaute-montivilliers-3.webp", "Site de l'Institut de Beauté de Montivilliers"]),
+  })}
+
+    ${band(["Seine-Maritime", "Eure", "Calvados", "Manche", "Orne"])}
+
+    ${feel({
+      id: "reputation",
+      title: "Le bouche-à-oreille<br /><em>passe par Google.</em>",
+      body: [
+        `Un client satisfait parle de vous. Son ami tape votre nom sur son téléphone avant d'appeler, et ${hl("il juge sur ce qu'il trouve.")}`,
+        "Un site daté, ou pas de site du tout, fait douter même quand votre travail est excellent. MetriKs donne à votre réputation une vitrine à sa hauteur.",
+      ],
+    })}
+
+    ${section({
+      id: "departements", title: "Du Havre à Cherbourg,<br /><em>un seul interlocuteur.</em>",
+      intro: "MetriKs accompagne les entreprises de toute la Normandie, avec le même espace client pour suivre chaque projet, où que vous soyez.",
+      content: offer([
+        ["Seine-Maritime", `Le Havre, Montivilliers, Rouen, Dieppe, Fécamp. MetriKs est installé ici : ${hl("les rendez-vous se font sur place.")}`],
+        ["Eure", `Évreux, Vernon, Louviers, Bernay. ${hl("RMC Bâtiment, à Évreux,")} a confié la création de son site à MetriKs.`],
+        ["Calvados", "Caen, Lisieux, Bayeux, Honfleur, Deauville. Les rendez-vous se font en visio, et vous suivez chaque étape dans votre espace client."],
+        ["Manche et Orne", `Cherbourg, Saint-Lô, Granville, Alençon, Flers. Même méthode, même suivi : ${hl("la distance ne change rien à votre site.")}`],
+      ]),
+    })}
+
+    ${section({
+      id: "atouts", title: "Ce que votre site<br /><em>vous apporte ici.</em>",
+      content: offer([
+        ["Les visiteurs de passage vous trouvent", `Sur la côte comme en ville, une partie de vos clients découvre la région. Un site clair, bien placé sur Google et Google Maps, ${hl("les guide jusqu'à votre porte.")}`],
+        ["Les habitants vous choisissent", `Face aux grandes enseignes, votre site montre ce qui vous distingue : ${hl("votre histoire, votre équipe et votre travail.")}`],
+        ["Votre téléphone sonne pour de vrais projets", `Horaires, prestations, zone d'intervention : votre site répond aux questions simples. ${hl("Les appels qui arrivent sont des demandes sérieuses.")}`],
+      ]),
+    })}
+
+    <section class="sites sites--inner" aria-labelledby="sites-title">
+      <div class="wrap">
+        <div class="sites__head">
+          <h2 class="h-xl split" id="sites-title">Deux entreprises <em>normandes.</em></h2>
+          <p>À Montivilliers et à Évreux, deux métiers différents et ${hl("deux sites qui leur ressemblent.")}</p>
+        </div>
+        <ol class="projects" data-projects></ol>
+      </div>
+      <div class="preview" aria-hidden="true"><div class="preview__inner"></div></div>
+    </section>
+
+    ${section({ id: "questions", title: "Vos <em>questions.</em>", content: faq(normFaq) })}
+
+    ${section({ id: "services-lies", cls: "block--tight", title: "Tous les <em>services.</em>", content: svcRows(B, SERVICES) })}
 
     ${contactCta(B)}`,
 });
@@ -994,8 +1097,8 @@ pages.push({
     B, kind: "ticket", kw: "Contact et diagnostic offert", crumb: "Contact",
     lines: ["Parlons de", "<em>votre projet.</em>"],
     lead: `En rendez-vous près du Havre ou en visio depuis chez vous : 45 minutes pour parler de votre métier, de vos clients et de ce qui vous freine aujourd'hui. ${hl("Vous repartez avec des idées claires")}, sans engagement.`,
-    ctas: `<a class="btn btn--signal" href="${MAILTO}"><span>Réserver par e-mail</span>${ARROW}</a>
-            <button class="copy copy--dark" type="button" data-copy="${EMAIL}"><span data-copy-label>${EMAIL}</span><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="1"/><path d="M16 8V4H4v12h4"/></svg></button>`,
+    ctas: `<a class="btn btn--signal" href="${TEL}"><span>Appeler le ${PHONE}</span>${PHONE_ICO}</a>
+            <a class="btn btn--line" href="${MAILTO}"><span>Réserver par e-mail</span></a>`,
     visual: visTicket(),
   })}
 
@@ -1014,7 +1117,7 @@ pages.push({
         <h2 class="h-xl split" id="reach-title">Montivilliers,<br /><em>et partout ailleurs.</em></h2>
         <div class="reach__body">
           <p>MetriKs est basé à Montivilliers (76290), à côté du Havre. Les rendez-vous ont lieu sur place pour les entreprises de la région, ${hl("et en visio partout en France.")}</p>
-          <p>Pour réserver, écrivez à <a class="reach__mail" href="${MAILTO}">${EMAIL}</a> avec quelques mots sur votre activité. MetriKs vous répond pour fixer un créneau.</p>
+          <p>Pour réserver, appelez le <a class="reach__mail" href="${TEL}">${PHONE}</a> ou écrivez à <a class="reach__mail" href="${MAILTO}">${EMAIL}</a> avec quelques mots sur votre activité. MetriKs vous répond pour fixer un créneau.</p>
         </div>
       </div>
     </section>`,
