@@ -408,7 +408,7 @@ function page({ slug, title, desc, current, main, schema = [], home = false, ban
   <script src="${B}assets/js/SplitText.min.js" defer></script>
   <script src="${B}assets/js/lenis.min.js" defer></script>
   <script src="${B}assets/js/data.js" defer></script>
-${home ? `  <script src="${B}assets/js/scene.js" defer></script>\n` : ""}  <script src="${B}assets/js/main.js" defer></script>
+  <script src="${B}assets/js/main.js" defer></script>
 </body>
 </html>
 `;

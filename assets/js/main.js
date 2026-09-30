@@ -265,8 +265,18 @@
   var introReady = false;
   var matchdayOpen = function (i) { lbOpen(matchdayList, i); };
   if (hero) {
+    // WebGL réel uniquement : sans carte graphique (rendu logiciel, robots comme PageSpeed),
+    // la galerie 3D bloquerait le processeur, on garde alors l'image fixe.
     var webgl = (function () {
-      try { var c = document.createElement("canvas"); return !!(c.getContext("webgl2") || c.getContext("webgl")); } catch (e) { return false; }
+      try {
+        var c = document.createElement("canvas");
+        var gl = c.getContext("webgl2") || c.getContext("webgl");
+        if (!gl) return false;
+        var info = gl.getExtension("WEBGL_debug_renderer_info");
+        var name = String((info && gl.getParameter(info.UNMASKED_RENDERER_WEBGL)) || gl.getParameter(gl.RENDERER) || "");
+        if (/swiftshader|llvmpipe|softpipe|software|basic render/i.test(name)) return false;
+        return true;
+      } catch (e) { return false; }
     })();
     if (location.protocol === "file:") {
       webgl = false;
@@ -308,8 +318,24 @@
       window.addEventListener("scroll", sync, { passive: true });
       sync();
     };
-    if (webgl && window.MetriksScene) {
-      (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(startScene);
+    // La galerie (Three.js, ~480 Ko) se charge après le lancement de l'introduction,
+    // pour ne plus retarder le rideau d'entrée ni le titre.
+    var loadScene = function () {
+      return new Promise(function (resolve, reject) {
+        if (window.MetriksScene) return resolve();
+        var s = document.createElement("script");
+        s.src = B + "assets/js/scene.js";
+        s.async = true;
+        s.onload = resolve;
+        s.onerror = reject;
+        document.head.appendChild(s);
+      });
+    };
+    if (webgl) {
+      loadScene()
+        .then(function () { return document.fonts && document.fonts.ready ? document.fonts.ready : null; })
+        .then(function () { if (window.MetriksScene) startScene(); else root.classList.add("no-webgl"); })
+        .catch(function () { root.classList.add("no-webgl"); });
     } else root.classList.add("no-webgl");
   }
 
