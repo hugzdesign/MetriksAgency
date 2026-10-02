@@ -174,7 +174,10 @@ function contactCta(B, text) {
       <div class="wrap contact__inner">
         <h2 class="contact__title split" id="contact-title">Votre prochain client vous cherche <em>déjà.</em></h2>
         <div class="contact__body">
-          <p>${text || `Réservez votre diagnostic offert : ${hl("45 minutes pour faire le point")} sur votre site, votre image et ce qui vous freine. En rendez-vous près du Havre ou en visio, où que vous soyez. Sans engagement.`}</p>
+          <div class="contact__text">
+            <p>${text || `Réservez votre diagnostic offert : ${hl("45 minutes pour faire le point")} sur votre site, votre image et ce qui vous freine. En rendez-vous près du Havre ou en visio, où que vous soyez. Sans engagement.`}</p>
+            <a class="contact__test" href="${B}contact/#autodiagnostic">Pas encore prêt à appeler ? Faites le test en une minute ${ARROW}</a>
+          </div>
           <div class="contact__actions">
             <a class="btn btn--ink" href="${B}contact/"><span>Réserver mon diagnostic</span>${ARROW}</a>
             <a class="copy" href="${TEL}"><span>${PHONE}</span>${PHONE_ICO}</a>
@@ -257,6 +260,53 @@ function related(B, current) {
     title: "Les autres <em>services.</em>",
     content: svcRows(B, SERVICES.filter((s) => s.slug !== current)),
   });
+}
+
+
+const QUIZ = [
+  { q: "Sur un téléphone, votre site donne-t-il envie de vous appeler ?", o: ["Oui, il est clair et rapide", "Il s'affiche, sans plus", "Je n'ai pas de site, ou il est illisible"],
+    tip: "Un site pensé d'abord pour le téléphone, avec votre numéro, vos horaires et votre adresse à portée de pouce.", link: "creation-site-internet/", label: "Création de site" },
+  { q: "Tapez votre métier suivi de votre ville sur Google. Où apparaissez-vous ?", o: ["Dans les premiers résultats ou sur la carte", "Plus bas, ou je ne sais pas", "Nulle part"],
+    tip: "Une fiche Google complète et des pages pensées pour votre ville, pour sortir là où vos clients cherchent.", link: "referencement-local/", label: "Référencement local" },
+  { q: "Combien d'avis Google vos clients vous ont-ils laissés ?", o: ["Plus de vingt, dont des récents", "Quelques-uns", "Aucun ou presque"],
+    tip: "Demander un avis à chaque client content. Vos futurs clients les lisent avant d'appeler.", link: "referencement-local/", label: "Référencement local" },
+  { q: "Donnez-vous l'adresse de votre site avec fierté ?", o: ["Oui, sans hésiter", "Ça dépend à qui", "Plutôt pas"],
+    tip: "Une allure à la hauteur de votre travail, pour ne plus hésiter à donner votre adresse.", link: "refonte-site-internet/", label: "Refonte de site" },
+  { q: "D'où viennent vos nouveaux clients ?", o: ["Souvent d'internet", "Surtout du bouche-à-oreille", "Je ne sais pas vraiment"],
+    tip: "Un site qui prend le relais de votre réputation : la personne à qui on vous recommande vous cherche d'abord sur Google.", link: "creation-site-internet/", label: "Création de site" },
+];
+function quiz(B) {
+  return `<section class="quiz" id="autodiagnostic" aria-labelledby="quiz-title">
+      <div class="wrap quiz__grid">
+        <div class="quiz__head">
+          <h2 class="h-xl split" id="quiz-title">Votre présence en ligne<br /><em>en une minute.</em></h2>
+          <p>Cinq questions, une réponse franche, tout de suite. Pas d'inscription, pas de formulaire : ${hl("un premier constat")}, avant le diagnostic offert.</p>
+        </div>
+        <form class="quiz__form" data-quiz novalidate>
+${QUIZ.map((it, i) => `          <fieldset class="quiz__q" data-tip="${esc(it.tip)}" data-link="${B}${it.link}" data-label="${esc(it.label)}">
+            <legend><span class="quiz__n">${i + 1}</span>${it.q}</legend>
+            <div class="quiz__opts">
+${it.o.map((o, k) => `              <label class="quiz__opt"><input type="radio" name="q${i}" value="${2 - k}"><span>${o}</span></label>`).join("\n")}
+            </div>
+          </fieldset>`).join("\n")}
+          <div class="quiz__foot">
+            <p class="quiz__count" data-quiz-count aria-live="polite">0 réponse sur 5</p>
+            <button class="btn btn--signal" type="submit" data-quiz-submit disabled><span>Voir mon résultat</span>${ARROW}</button>
+          </div>
+        </form>
+        <div class="quiz__result" data-quiz-result hidden tabindex="-1" aria-live="polite">
+          <div class="quiz__score"><span data-quiz-score>0</span><small>/10</small></div>
+          <h3 data-quiz-title></h3>
+          <p data-quiz-text></p>
+          <ol class="quiz__tips" data-quiz-tips></ol>
+          <div class="quiz__actions">
+            <a class="btn btn--signal" data-quiz-mail href="${MAILTO}"><span>Réserver mon diagnostic offert</span>${ARROW}</a>
+            <a class="btn btn--line" href="${TEL}"><span>Appeler le ${PHONE}</span></a>
+            <button class="quiz__redo" type="button" data-quiz-redo>Refaire le test</button>
+          </div>
+        </div>
+      </div>
+    </section>`;
 }
 
 /* ------------------------------------------------------------------ */
@@ -1101,6 +1151,8 @@ pages.push({
             <a class="btn btn--line" href="${MAILTO}"><span>Réserver par e-mail</span></a>`,
     visual: visTicket(),
   })}
+
+    ${quiz(B)}
 
     ${section({
       id: "deroulement", title: "Pendant ces<br /><em>45 minutes.</em>",

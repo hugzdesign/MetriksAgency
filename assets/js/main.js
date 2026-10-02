@@ -258,6 +258,75 @@
   });
 
   /* ------------------------------------------------------------------ */
+  /* Autodiagnostic (page contact)                                       */
+  /* ------------------------------------------------------------------ */
+  var quizForm = $("[data-quiz]");
+  if (quizForm) {
+    var qs = $$(".quiz__q", quizForm);
+    var qCount = $("[data-quiz-count]"), qSubmit = $("[data-quiz-submit]");
+    var qResult = $("[data-quiz-result]");
+    var LEVELS = [
+      { min: 8, title: "Vous partez avec une longueur d'avance.", text: "Vos clients vous trouvent et votre site tient la route. Le diagnostic offert sert à aller chercher les demandes qui vous échappent encore." },
+      { min: 4, title: "Des clients vous échappent.", text: "Une partie de vos futurs clients vous cherche, hésite, puis appelle quelqu'un d'autre. Quelques changements ciblés peuvent suffire à les retenir." },
+      { min: 0, title: "Vos futurs clients ne vous trouvent pas encore.", text: "Votre travail mérite mieux que ce que Google montre de vous aujourd'hui. Bonne nouvelle : tout reste à construire, et vite." }
+    ];
+    var answered = function () { return qs.filter(function (f) { return $("input:checked", f); }).length; };
+    quizForm.addEventListener("change", function (e) {
+      var f = e.target.closest(".quiz__q");
+      if (f) f.classList.add("is-done");
+      var n = answered();
+      qCount.textContent = n + (n > 1 ? " réponses" : " réponse") + " sur " + qs.length;
+      qSubmit.disabled = n < qs.length;
+      if (n < qs.length && f) {
+        var next = qs[qs.indexOf(f) + 1];
+        if (next && !$("input:checked", next) && window.__lenis && window.innerWidth < 900) window.__lenis.scrollTo(next, { offset: -90, duration: 0.8 });
+      }
+    });
+    quizForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      if (answered() < qs.length) return;
+      var score = 0, lines = [], tips = [], seen = {};
+      qs.forEach(function (f, i) {
+        var inp = $("input:checked", f);
+        var v = +inp.value;
+        score += v;
+        lines.push((i + 1) + ". " + $("legend", f).textContent.replace(/^\d+/, "").trim() + " : " + inp.nextElementSibling.textContent);
+        if (v < 2 && !seen[f.dataset.tip]) { seen[f.dataset.tip] = 1; tips.push({ v: v, f: f }); }
+      });
+      tips.sort(function (a, b) { return a.v - b.v; });
+      var lvl = LEVELS.filter(function (l) { return score >= l.min; })[0];
+      $("[data-quiz-title]").textContent = lvl.title;
+      $("[data-quiz-text]").textContent = lvl.text;
+      $("[data-quiz-tips]").innerHTML = tips.slice(0, 3).map(function (t) {
+        return '<li><p>' + esc(t.f.dataset.tip) + '</p><a href="' + esc(t.f.dataset.link) + '">' + esc(t.f.dataset.label) + '</a></li>';
+      }).join("") || '<li><p>Gardez le cap : un site à jour et des avis réguliers suffisent à garder votre place.</p></li>';
+      var mail = $("[data-quiz-mail]");
+      var body = "Bonjour,\n\nJe souhaite réserver un diagnostic offert. Voici mes réponses à l'autodiagnostic (score " + score + "/10) :\n\n" + lines.join("\n") + "\n\nEntreprise : \nVille : \nTéléphone : \n";
+      mail.href = "mailto:contact@metriksagency.com?subject=" + encodeURIComponent("Diagnostic offert - MetriKs (score " + score + "/10)") + "&body=" + encodeURIComponent(body);
+      quizForm.hidden = true;
+      qResult.hidden = false;
+      var sc = $("[data-quiz-score]");
+      if (hasGsap && !reduce) {
+        var o = { v: 0 };
+        gsap.to(o, { v: score, duration: 1.2, ease: "expo.out", onUpdate: function () { sc.textContent = Math.round(o.v); } });
+        gsap.from($$(".quiz__result > *"), { y: 24, opacity: 0, duration: 0.9, ease: "expo.out", stagger: 0.08 });
+      } else sc.textContent = score;
+      qResult.focus({ preventScroll: true });
+      if (window.__lenis) window.__lenis.scrollTo("#autodiagnostic", { offset: -20, duration: 1 });
+      if (window.ScrollTrigger) ScrollTrigger.refresh();
+    });
+    $("[data-quiz-redo]").addEventListener("click", function () {
+      quizForm.reset();
+      qs.forEach(function (f) { f.classList.remove("is-done"); });
+      qSubmit.disabled = true;
+      qCount.textContent = "0 réponse sur " + qs.length;
+      qResult.hidden = true;
+      quizForm.hidden = false;
+      if (window.ScrollTrigger) ScrollTrigger.refresh();
+    });
+  }
+
+  /* ------------------------------------------------------------------ */
   /* Three.js : galerie de l'accueil                                     */
   /* ------------------------------------------------------------------ */
   var hero = $(".hero");

@@ -151,7 +151,73 @@
       </div>
     </section>
 
-    <section class="block  tone-light" id="deroulement" aria-labelledby="deroulement-title">
+    <section class="quiz tone-light" id="autodiagnostic" aria-labelledby="quiz-title">
+      <div class="wrap quiz__grid">
+        <div class="quiz__head">
+          <h2 class="h-xl split" id="quiz-title">Votre présence en ligne<br /><em>en une minute.</em></h2>
+          <p>Cinq questions, une réponse franche, tout de suite. Pas d'inscription, pas de formulaire : <strong class="hl">un premier constat</strong>, avant le diagnostic offert.</p>
+        </div>
+        <form class="quiz__form" data-quiz novalidate>
+          <fieldset class="quiz__q" data-tip="Un site pensé d'abord pour le téléphone, avec votre numéro, vos horaires et votre adresse à portée de pouce." data-link="../creation-site-internet/" data-label="Création de site">
+            <legend><span class="quiz__n">1</span>Sur un téléphone, votre site donne-t-il envie de vous appeler ?</legend>
+            <div class="quiz__opts">
+              <label class="quiz__opt"><input type="radio" name="q0" value="2"><span>Oui, il est clair et rapide</span></label>
+              <label class="quiz__opt"><input type="radio" name="q0" value="1"><span>Il s'affiche, sans plus</span></label>
+              <label class="quiz__opt"><input type="radio" name="q0" value="0"><span>Je n'ai pas de site, ou il est illisible</span></label>
+            </div>
+          </fieldset>
+          <fieldset class="quiz__q" data-tip="Une fiche Google complète et des pages pensées pour votre ville, pour sortir là où vos clients cherchent." data-link="../referencement-local/" data-label="Référencement local">
+            <legend><span class="quiz__n">2</span>Tapez votre métier suivi de votre ville sur Google. Où apparaissez-vous ?</legend>
+            <div class="quiz__opts">
+              <label class="quiz__opt"><input type="radio" name="q1" value="2"><span>Dans les premiers résultats ou sur la carte</span></label>
+              <label class="quiz__opt"><input type="radio" name="q1" value="1"><span>Plus bas, ou je ne sais pas</span></label>
+              <label class="quiz__opt"><input type="radio" name="q1" value="0"><span>Nulle part</span></label>
+            </div>
+          </fieldset>
+          <fieldset class="quiz__q" data-tip="Demander un avis à chaque client content. Vos futurs clients les lisent avant d'appeler." data-link="../referencement-local/" data-label="Référencement local">
+            <legend><span class="quiz__n">3</span>Combien d'avis Google vos clients vous ont-ils laissés ?</legend>
+            <div class="quiz__opts">
+              <label class="quiz__opt"><input type="radio" name="q2" value="2"><span>Plus de vingt, dont des récents</span></label>
+              <label class="quiz__opt"><input type="radio" name="q2" value="1"><span>Quelques-uns</span></label>
+              <label class="quiz__opt"><input type="radio" name="q2" value="0"><span>Aucun ou presque</span></label>
+            </div>
+          </fieldset>
+          <fieldset class="quiz__q" data-tip="Une allure à la hauteur de votre travail, pour ne plus hésiter à donner votre adresse." data-link="../refonte-site-internet/" data-label="Refonte de site">
+            <legend><span class="quiz__n">4</span>Donnez-vous l'adresse de votre site avec fierté ?</legend>
+            <div class="quiz__opts">
+              <label class="quiz__opt"><input type="radio" name="q3" value="2"><span>Oui, sans hésiter</span></label>
+              <label class="quiz__opt"><input type="radio" name="q3" value="1"><span>Ça dépend à qui</span></label>
+              <label class="quiz__opt"><input type="radio" name="q3" value="0"><span>Plutôt pas</span></label>
+            </div>
+          </fieldset>
+          <fieldset class="quiz__q" data-tip="Un site qui prend le relais de votre réputation : la personne à qui on vous recommande vous cherche d'abord sur Google." data-link="../creation-site-internet/" data-label="Création de site">
+            <legend><span class="quiz__n">5</span>D'où viennent vos nouveaux clients ?</legend>
+            <div class="quiz__opts">
+              <label class="quiz__opt"><input type="radio" name="q4" value="2"><span>Souvent d'internet</span></label>
+              <label class="quiz__opt"><input type="radio" name="q4" value="1"><span>Surtout du bouche-à-oreille</span></label>
+              <label class="quiz__opt"><input type="radio" name="q4" value="0"><span>Je ne sais pas vraiment</span></label>
+            </div>
+          </fieldset>
+          <div class="quiz__foot">
+            <p class="quiz__count" data-quiz-count aria-live="polite">0 réponse sur 5</p>
+            <button class="btn btn--signal" type="submit" data-quiz-submit disabled><span>Voir mon résultat</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></button>
+          </div>
+        </form>
+        <div class="quiz__result" data-quiz-result hidden tabindex="-1" aria-live="polite">
+          <div class="quiz__score"><span data-quiz-score>0</span><small>/10</small></div>
+          <h3 data-quiz-title></h3>
+          <p data-quiz-text></p>
+          <ol class="quiz__tips" data-quiz-tips></ol>
+          <div class="quiz__actions">
+            <a class="btn btn--signal" data-quiz-mail href="mailto:contact@metriksagency.com?subject=Diagnostic%20offert%20-%20MetriKs&amp;body=Bonjour%2C%0A%0AJe%20souhaite%20r%C3%A9server%20un%20diagnostic%20offert.%0A%0AEntreprise%20%3A%20%0AActivit%C3%A9%20%3A%20%0AVille%20%3A%20%0ASite%20actuel%20(s%27il%20existe)%20%3A%20%0AT%C3%A9l%C3%A9phone%20%3A%20%0A"><span>Réserver mon diagnostic offert</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a>
+            <a class="btn btn--line" href="tel:+33647962037"><span>Appeler le 06 47 96 20 37</span></a>
+            <button class="quiz__redo" type="button" data-quiz-redo>Refaire le test</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block  tone-graphite" id="deroulement" aria-labelledby="deroulement-title">
       <div class="wrap">
         <div class="block__head">
           <h2 class="h-xl split" id="deroulement-title">Pendant ces<br /><em>45 minutes.</em></h2>
@@ -165,7 +231,7 @@
       </div>
     </section>
 
-    <section class="reach tone-graphite" aria-labelledby="reach-title">
+    <section class="reach tone-light" aria-labelledby="reach-title">
       <div class="wrap reach__grid">
         <h2 class="h-xl split" id="reach-title">Montivilliers,<br /><em>et partout ailleurs.</em></h2>
         <div class="reach__body">
