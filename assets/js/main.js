@@ -629,9 +629,9 @@
     var mf = $("[data-words]");
     if (mf) {
       var words = SplitText.create(mf, { type: "words", wordsClass: "w" });
-      gsap.fromTo(words.words, { opacity: 0.14 }, {
+      gsap.fromTo(words.words, { opacity: 0.32 }, {
         opacity: 1, ease: "none", stagger: 0.1,
-        scrollTrigger: { trigger: mf, start: "top 78%", end: "bottom 45%", scrub: true }
+        scrollTrigger: { trigger: mf, start: "top 88%", end: "center 55%", scrub: 0.4 }
       });
       gsap.from(".manifesto__end", { y: 30, opacity: 0, duration: 1, ease: "expo.out", scrollTrigger: { trigger: ".manifesto__end", start: "top 88%" } });
     }

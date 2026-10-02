@@ -1018,3 +1018,7 @@ html[data-palette="doux"] {
 .contact a.copy svg, .btn svg path { stroke-linejoin: round; }
 .menu__tel { display: inline-flex !important; align-items: center; gap: 10px; margin-top: 14px; font-family: var(--f-body) !important; font-size: 1.15rem !important; font-weight: 700 !important; letter-spacing: 0 !important; }
 .menu__tel svg { font-size: 1.1em; stroke-width: 2.2; }
+
+/* Manifeste : plus lisible (taille réduite, graisse normale, interligne aéré) */
+.manifesto__text { font-weight: 400; font-size: clamp(1.35rem, .9rem + 1.9vw, 2.55rem); line-height: 1.32; letter-spacing: -0.02em; max-width: 34ch; }
+.manifesto__text em { font-weight: 700; }
