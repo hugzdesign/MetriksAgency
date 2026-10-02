@@ -716,6 +716,14 @@ pages.push({
       <div class="wrap more">${btn(B + "clubs-sportifs/", "Voir le travail pour les clubs", "line")}</div>
     </section>
 
+    <!-- RESSOURCES -->
+    ${section({
+      id: "ressources", title: "Ce qu'il faut savoir,<br /><em>sans jargon.</em>",
+      intro: `Prix d'un site, fiche Google, avis clients : MetriKs répond aux questions que vous vous posez, ${hl("avec des conseils à appliquer seul.")}`,
+      content: `${postCards(B, [...ARTICLES].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 3))}
+        <div class="more">${btn(B + "ressources/", "Tous les articles", "line")}</div>`,
+    })}
+
     <!-- CONTACT -->
     ${contactCta(B)}`,
 });
@@ -1288,7 +1296,7 @@ pages.push({
     ${section({
       id: "articles", title: "Les <em>articles.</em>",
       intro: "Budget, fiche Google, avis, refonte, contenu du site : choisissez par où commencer.",
-      content: postCards(B, ARTICLES),
+      content: postCards(B, [...ARTICLES].sort((a, b) => b.date.localeCompare(a.date))),
     })}
 
     ${contactCta(B, `Un article ne remplace pas un regard sur votre situation. ${hl("Le diagnostic offert")} dure 45 minutes, en rendez-vous près du Havre ou en visio. Sans engagement.`)}`,
