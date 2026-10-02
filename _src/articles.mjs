@@ -17,13 +17,13 @@ export const ARTICLES = [
 
 Vous avez trois grandes options. Elles ne coûtent pas la même chose et ne demandent pas le même temps de votre côté.
 
-| Solution | Ordre de grandeur | Ce que vous fournissez |
+| Solution | Prix moyen du marché | Ce que vous fournissez |
 | --- | --- | --- |
 | Constructeur en ligne (Wix, Squarespace…) | 15 à 40 € par mois | Votre temps : textes, photos, mise en page, réglages |
 | Site vitrine sur-mesure | 1 500 à 5 000 € environ | Vos infos et vos photos, le reste est fait pour vous |
 | Site avec fonctions avancées (réservation, boutique, espace membre) | à partir de 4 000 € environ | Un cahier des charges plus précis |
 
-Ces chiffres sont des ordres de grandeur constatés en France. Seul un devis détaillé vous donne le vrai prix de votre projet.
+> Ces fourchettes sont des moyennes relevées sur le marché français, **pas les tarifs de MetriKs**. Chaque projet est différent : seul un devis détaillé vous donne le vrai prix du vôtre.
 
 ## Ce qui fait varier le prix
 
