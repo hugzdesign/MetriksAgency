@@ -729,6 +729,8 @@
   };
   batch(".offer__item", { y: 40, opacity: 0 });
   batch(".svc li", { y: 36, opacity: 0 });
+  batch(".reads li", { y: 36, opacity: 0 }, { to: { stagger: 0.08 } });
+  batch(".post__body > *", { y: 18, opacity: 0 }, { start: "top 94%", to: { stagger: 0.04, duration: 0.7 } });
   batch(".sectors__list li", { y: 24, opacity: 0 }, { to: { stagger: 0.05, duration: 0.8 } });
   batch(".faq__item", { y: 24, opacity: 0 }, { to: { stagger: 0.06 } });
   batch(".space__list li", { y: 40, opacity: 0 });

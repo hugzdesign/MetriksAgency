@@ -6,6 +6,7 @@ import fs from "node:fs";
 import path from "node:path";
 import vm from "node:vm";
 import { fileURLToPath } from "node:url";
+import { ARTICLES } from "./articles.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const SITE = "https://metriksagency.com/";
@@ -83,6 +84,7 @@ ${SERVICES.map((s) => `            <li><a href="${B}${s.slug}/"${current === s.s
       <a href="${B}realisations/"${is("realisations")}>Réalisations</a>
       <a href="${B}methode/"${is("methode")}>Méthode</a>
       <a href="${B}clubs-sportifs/"${is("clubs-sportifs")}>Clubs sportifs</a>
+      <a href="${B}ressources/"${is("ressources")}>Ressources</a>
     </nav>
     <a class="bug__cta" href="${B}contact/">Diagnostic offert</a>
     <button class="bug__burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="Ouvrir le menu">
@@ -101,6 +103,7 @@ ${SERVICES.map((s) => `        <a href="${B}${s.slug}/">${s.menu}</a>`).join("\n
       <a href="${B}realisations/">Réalisations</a>
       <a href="${B}methode/">Méthode</a>
       <a href="${B}clubs-sportifs/">Clubs sportifs</a>
+      <a href="${B}ressources/">Ressources</a>
       <a href="${B}contact/">Contact</a>
       <a class="menu__tel" href="${TEL}">${PHONE_ICO}<span>${PHONE}</span></a>
     </nav>
@@ -124,6 +127,7 @@ ${SERVICES.map((s) => `        <a href="${B}${s.slug}/">${s.name}</a>`).join("\n
         <a href="${B}methode/">Méthode et espace client</a>
         <a href="${B}clubs-sportifs/">Clubs sportifs</a>
         <a href="${B}creation-site-internet-normandie/">Création de site en Normandie</a>
+        <a href="${B}ressources/">Ressources et conseils</a>
         <a href="${B}contact/">Diagnostic offert</a>
       </nav>
       <div class="foot__col">
@@ -192,12 +196,12 @@ function contactCta(B, text) {
 }
 
 // En-tête de page intérieure
-function phero({ B, kw, crumb, lines, lead, visual, ctas, kind }) {
+function phero({ B, kw, crumb, trail = [], lines, lead, visual, ctas, kind }) {
   return `<section class="phero phero--${kind}" id="top" aria-labelledby="page-title">
       <div class="phero__dial" aria-hidden="true">${dial()}</div>
       <div class="wrap phero__grid">
         <div class="phero__text">
-          <nav class="crumbs" aria-label="Fil d'Ariane"><ol><li><a href="${B}">Accueil</a></li><li aria-current="page">${crumb}</li></ol></nav>
+          <nav class="crumbs" aria-label="Fil d'Ariane"><ol><li><a href="${B}">Accueil</a></li>${trail.map(([h, t]) => `<li><a href="${B}${h}">${t}</a></li>`).join("")}<li aria-current="page">${crumb}</li></ol></nav>
           <h1 class="phero__title" id="page-title">
             <span class="phero__kw"><span>${kw}</span></span>
 ${lines.map((l) => `            <span class="line"><span>${l}</span></span>`).join("\n")}
@@ -262,6 +266,78 @@ function related(B, current) {
   });
 }
 
+
+/* ------------------------------------------------------------------ */
+/* Ressources : articles                                               */
+/* ------------------------------------------------------------------ */
+const slugify = (t) => t.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+const DATE_FR = (d) => new Date(d + "T12:00:00Z").toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
+
+// Mise en forme du texte des articles (voir l'en-tête de _src/articles.mjs)
+function inline(B, t) {
+  return esc(t)
+    .replace(/\*\*(.+?)\*\*/g, '<strong class="hl">$1</strong>')
+    .replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (m, txt, href) => /^https?:/.test(href)
+      ? `<a href="${href}" target="_blank" rel="noopener">${txt}</a>`
+      : `<a href="${B}${href.replace(/^\//, "")}">${txt}</a>`);
+}
+function md(B, src) {
+  const out = [], toc = [];
+  const blocks = src.trim().split(/\n\s*\n/);
+  for (const raw of blocks) {
+    const b = raw.trim();
+    const lines = b.split("\n").map((l) => l.trim());
+    if (b.startsWith("## ")) {
+      const t = b.slice(3).trim(), id = slugify(t);
+      toc.push([id, t]);
+      out.push(`<h2 id="${id}">${inline(B, t)}</h2>`);
+    } else if (b.startsWith("### ")) {
+      out.push(`<h3>${inline(B, b.slice(4).trim())}</h3>`);
+    } else if (lines.every((l) => l.startsWith("- "))) {
+      out.push(`<ul>${lines.map((l) => `<li>${inline(B, l.slice(2))}</li>`).join("")}</ul>`);
+    } else if (lines.every((l) => /^\d+\.\s/.test(l))) {
+      out.push(`<ol>${lines.map((l) => `<li>${inline(B, l.replace(/^\d+\.\s/, ""))}</li>`).join("")}</ol>`);
+    } else if (lines.every((l) => l.startsWith(">"))) {
+      out.push(`<blockquote class="post__note"><p>${inline(B, lines.map((l) => l.replace(/^>\s?/, "")).join(" "))}</p></blockquote>`);
+    } else if (lines.every((l) => l.startsWith("|"))) {
+      const cells = (l) => l.replace(/^\||\|$/g, "").split("|").map((c) => c.trim());
+      const [head, , ...rows] = lines;
+      out.push(`<div class="post__table"><table><thead><tr>${cells(head).map((c) => `<th scope="col">${inline(B, c)}</th>`).join("")}</tr></thead><tbody>${rows.map((r) => `<tr>${cells(r).map((c, i) => i === 0 ? `<th scope="row">${inline(B, c)}</th>` : `<td>${inline(B, c)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`);
+    } else {
+      out.push(`<p>${inline(B, lines.join(" "))}</p>`);
+    }
+  }
+  return { html: out.join("\n          "), toc };
+}
+
+// Titre découpé en lignes courtes, la dernière en orange comme sur les autres pages
+function titleLines(t, max = 24) {
+  const words = t.split(" "), lines = [];
+  let cur = "";
+  for (const w of words) {
+    if (cur && (cur + " " + w).length > max && w !== "?" && w !== ":") { lines.push(cur); cur = w; }
+    else cur = cur ? cur + " " + w : w;
+  }
+  lines.push(cur);
+  lines[lines.length - 1] = `<em>${lines[lines.length - 1]}</em>`;
+  return lines;
+}
+
+const READ_ICO = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>';
+function postCards(B, list) {
+  return `<ul class="reads">
+${list.map((a) => `          <li><a class="reads__card" href="${B}ressources/${a.slug}/">
+            <span class="reads__cat">${a.cat}</span>
+            <strong class="reads__title">${a.title}</strong>
+            <span class="reads__desc">${a.desc}</span>
+            <span class="reads__meta">${READ_ICO}${a.read} min de lecture<span class="reads__go" aria-hidden="true">${ARROW}</span></span>
+          </a></li>`).join("\n")}
+        </ul>`;
+}
+const art = (slug) => ARTICLES.find((a) => a.slug === slug);
+function reads(B, slugs, title = "À lire <em>aussi.</em>", intro = "Des conseils concrets, à appliquer vous-même dès cette semaine.") {
+  return section({ id: "a-lire", cls: "block--tight", title, intro, content: postCards(B, slugs.map(art)) });
+}
 
 const QUIZ = [
   { q: "Sur un téléphone, votre site donne-t-il envie de vous appeler ?", o: ["Oui, il est clair et rapide", "Il s'affiche, sans plus", "Je n'ai pas de site, ou il est illisible"],
@@ -403,14 +479,14 @@ function tones(html) {
   });
 }
 
-function page({ slug, title, desc, current, main, schema = [], home = false, bandWords }) {
-  const B = slug ? "../" : "";
+function page({ slug, title, desc, current, main, schema = [], home = false, bandWords, ogType = "website" }) {
+  const B = slug ? "../".repeat(slug.split("/").length) : "";
   const url = SITE + (slug ? slug + "/" : "");
   const org = { "@type": "ProfessionalService", "@id": SITE + "#organization" };
   const graph = [...schema];
   const ld = JSON.stringify({ "@context": "https://schema.org", "@graph": graph }, null, 2).replace(/\n/g, "\n  ");
   return `<!doctype html>
-<html lang="fr" data-style="harmonie"${slug ? ' data-base="../"' : ""} data-page="${slug || "accueil"}">
+<html lang="fr" data-style="harmonie"${B ? ` data-base="${B}"` : ""} data-page="${slug || "accueil"}">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -419,7 +495,7 @@ function page({ slug, title, desc, current, main, schema = [], home = false, ban
   <meta name="theme-color" content="#0b0d12" />
   <meta property="og:title" content="${esc(title)}" />
   <meta property="og:description" content="${esc(desc)}" />
-  <meta property="og:type" content="website" />
+  <meta property="og:type" content="${ogType}" />
   <meta property="og:url" content="${url}" />
   <meta property="og:image" content="${SITE}assets/img/og-image.jpg" />
   <meta property="og:locale" content="fr_FR" />
@@ -500,11 +576,12 @@ const ORG = {
   knowsAbout: ["Création de site internet", "Refonte de site web", "Référencement local", "Identité visuelle"],
   sameAs: D.projects.map((p) => p.url).filter(Boolean),
 };
-const crumbsLd = (slug, name) => ({
+const crumbsLd = (slug, name, trail = []) => ({
   "@type": "BreadcrumbList",
   itemListElement: [
     { "@type": "ListItem", position: 1, name: "Accueil", item: SITE },
-    { "@type": "ListItem", position: 2, name, item: SITE + slug + "/" },
+    ...trail.map(([h, t], i) => ({ "@type": "ListItem", position: i + 2, name: t, item: SITE + h })),
+    { "@type": "ListItem", position: trail.length + 2, name, item: SITE + slug + "/" },
   ],
 });
 const serviceLd = (slug, name, desc) => ({
@@ -722,6 +799,8 @@ pages.push({
 
     ${section({ id: "questions", title: "Vos <em>questions.</em>", content: faq(creaFaq) })}
 
+    ${reads(B, ["prix-site-internet-artisan-commercant", "site-artisan-elements-indispensables"])}
+
     ${related(B, "creation-site-internet")}
 
     ${contactCta(B)}`,
@@ -852,6 +931,8 @@ pages.push({
 
     ${section({ id: "questions", title: "Vos <em>questions.</em>", content: faq(refFaq) })}
 
+    ${reads(B, ["refonte-site-sans-perdre-referencement", "site-artisan-elements-indispensables"])}
+
     ${related(B, "refonte-site-internet")}
 
     ${contactCta(B)}`,
@@ -899,6 +980,8 @@ pages.push({
     })}
 
     ${section({ id: "questions", title: "Vos <em>questions.</em>", content: faq(seoFaq) })}
+
+    ${reads(B, ["fiche-google-business-profile", "obtenir-avis-google"])}
 
     ${related(B, "referencement-local")}
 
@@ -1175,6 +1258,92 @@ pages.push({
     </section>`,
 });
 
+/* ---------------- Ressources ---------------- */
+const RES = ["ressources/", "Ressources"];
+const quizCard = (B) => `<a class="testcard" href="${B}contact/#autodiagnostic">
+          <span class="testcard__kw">Autodiagnostic</span>
+          <strong>Votre présence en ligne, en une minute.</strong>
+          <span>Cinq questions, un score sur dix et vos trois priorités. Sans inscription.</span>
+          <span class="testcard__go">Faire le test ${ARROW}</span>
+        </a>`;
+
+pages.push({
+  slug: "ressources",
+  title: "Ressources et conseils web pour artisans et commerçants · MetriKs",
+  desc: "Prix d'un site, fiche Google, avis clients, refonte : les conseils de MetriKs, agence web près du Havre, pour être trouvé et choisi sur internet.",
+  schema: [
+    crumbsLd("ressources", "Ressources"),
+    { "@type": "Blog", "@id": SITE + "ressources/#blog", url: SITE + "ressources/", name: "Ressources MetriKs", inLanguage: "fr-FR", publisher: { "@id": SITE + "#organization" },
+      blogPost: ARTICLES.map((a) => ({ "@type": "BlogPosting", headline: a.title, url: SITE + "ressources/" + a.slug + "/", datePublished: a.date })) },
+  ],
+  main: (B) => `${phero({
+    B, kind: "post", kw: "Ressources et conseils", crumb: "Ressources",
+    lines: ["Ce qu'il faut savoir,", "<em>sans jargon.</em>"],
+    lead: `Vous n'avez pas à devenir expert du web pour être trouvé. Ces articles répondent aux questions que les artisans et commerçants posent à MetriKs chaque semaine, ${hl("avec des conseils que vous pouvez appliquer seul.")}`,
+    ctas: `<a class="btn btn--signal" href="#articles"><span>Lire les articles</span>${ARROW}</a>
+            <a class="btn btn--line" href="${B}contact/#autodiagnostic"><span>Faire l'autodiagnostic</span></a>`,
+    visual: quizCard(B),
+  })}
+
+    ${section({
+      id: "articles", title: "Les <em>articles.</em>",
+      intro: "Budget, fiche Google, avis, refonte, contenu du site : choisissez par où commencer.",
+      content: postCards(B, ARTICLES),
+    })}
+
+    ${contactCta(B, `Un article ne remplace pas un regard sur votre situation. ${hl("Le diagnostic offert")} dure 45 minutes, en rendez-vous près du Havre ou en visio. Sans engagement.`)}`,
+});
+
+for (const a of ARTICLES) {
+  const others = ARTICLES.filter((x) => x.slug !== a.slug).slice(0, 3);
+  pages.push({
+    slug: "ressources/" + a.slug,
+    current: "ressources",
+    title: a.seoTitle,
+    desc: a.desc,
+    ogType: "article",
+    lastmod: a.date,
+    schema: [
+      crumbsLd("ressources/" + a.slug, a.title, [RES]),
+      { "@type": "BlogPosting", headline: a.title, description: a.desc, url: SITE + "ressources/" + a.slug + "/",
+        mainEntityOfPage: SITE + "ressources/" + a.slug + "/", datePublished: a.date, dateModified: a.date, inLanguage: "fr-FR",
+        image: SITE + "assets/img/og-image.jpg", articleSection: a.cat,
+        author: { "@id": SITE + "#organization" }, publisher: { "@id": SITE + "#organization" }, isPartOf: { "@id": SITE + "ressources/#blog" } },
+    ],
+    main: (B) => {
+      const { html, toc } = md(B, a.md);
+      return `${phero({
+    B, kind: "post", kw: `${a.cat} · ${a.read} min de lecture`, crumb: a.cat, trail: [RES],
+    lines: titleLines(a.title),
+    lead: a.intro,
+    ctas: `<p class="post__date">Publié le <time datetime="${a.date}">${DATE_FR(a.date)}</time> par MetriKs</p>`,
+    visual: `<nav class="toc" aria-label="Sommaire">
+          <p class="toc__kw">Au sommaire</p>
+          <ol>
+${toc.map(([id, t], i) => `            <li><a href="#${id}"><span>${String(i + 1).padStart(2, "0")}</span>${esc(t)}</a></li>`).join("\n")}
+          </ol>
+        </nav>`,
+  })}
+
+    <article class="post" aria-labelledby="page-title">
+      <div class="wrap post__grid">
+        <div class="post__body">
+          ${html}
+        </div>
+        <aside class="post__aside" aria-label="Aller plus loin">
+          ${quizCard(B)}
+          <a class="post__call" href="${TEL}">${PHONE_ICO}<span>Une question ? <strong>${PHONE}</strong></span></a>
+        </aside>
+      </div>
+    </article>
+
+    ${reads(B, others.map((o) => o.slug), "Continuer <em>la lecture.</em>", "")}
+
+    ${contactCta(B)}`;
+    },
+  });
+}
+
 /* ------------------------------------------------------------------ */
 /* Écriture                                                            */
 /* ------------------------------------------------------------------ */
@@ -1189,9 +1358,9 @@ for (const p of pages) {
 // Sitemap
 const sm = pages.map((p) => `  <url>
     <loc>${SITE}${p.slug ? p.slug + "/" : ""}</loc>
-    <lastmod>${TODAY}</lastmod>
+    <lastmod>${p.lastmod || TODAY}</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>${p.slug ? (SERVICES.some((s) => s.slug === p.slug) ? "0.9" : "0.7") : "1.0"}</priority>
+    <priority>${p.slug ? (SERVICES.some((s) => s.slug === p.slug) ? "0.9" : p.slug.startsWith("ressources/") ? "0.6" : "0.7") : "1.0"}</priority>
   </url>`).join("\n");
 fs.writeFileSync(path.join(ROOT, "sitemap.xml"), `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

@@ -4,7 +4,7 @@ Site en ligne : https://metriksagency.com/
 
 ## Les pages
 
-Le site compte dix pages. L'accueil présente MetriKs en quelques sections courtes et renvoie vers une page par sujet : création de site internet, création de site en Normandie, refonte, référencement local, identité visuelle, réalisations, méthode et espace client, clubs sportifs, contact. Chaque page a son adresse propre (par exemple metriksagency.com/referencement-local/), son titre Google, sa description et ses données structurées. Le fichier sitemap.xml liste toutes les pages pour Google.
+Le site compte dix pages principales et une rubrique Ressources. L'accueil présente MetriKs en quelques sections courtes et renvoie vers une page par sujet : création de site internet, création de site en Normandie, refonte, référencement local, identité visuelle, réalisations, méthode et espace client, clubs sportifs, contact. La rubrique Ressources (metriksagency.com/ressources/) regroupe les articles de conseil. Chaque page a son adresse propre (par exemple metriksagency.com/referencement-local/), son titre Google, sa description et ses données structurées. Le fichier sitemap.xml liste toutes les pages pour Google.
 
 ## Ouvrir le site sur votre ordinateur
 
@@ -15,6 +15,10 @@ Un double-clic sur index.html ouvre le site, et les liens mènent à toutes les 
 Tous les textes des pages se trouvent dans _src/build-pages.mjs, page par page, avec les titres et descriptions Google. Après une modification, lancez "node _src/build-pages.mjs" depuis le dossier du site : la commande régénère index.html, les dossiers de pages et sitemap.xml. Si vous modifiez directement un fichier index.html, la prochaine génération écrasera votre changement : reportez-le aussi dans build-pages.mjs.
 
 Pour mettre un passage en orange dans un paragraphe, entourez-le de hl("…") dans build-pages.mjs. Dans un titre, le mot entre balises em passe en orange gras.
+
+## Ajouter un article
+
+Les articles se trouvent dans _src/articles.mjs. Copiez un bloc existant, changez l'adresse (slug), le titre, la description Google, la catégorie, le temps de lecture, la date et le texte, puis lancez "node _src/build-pages.mjs". L'article apparaît dans la rubrique Ressources, dans le sitemap et dans les suggestions de lecture. Dans le texte, ## crée une partie (elle s'ajoute au sommaire), - une liste, > un encadré, **mot** un passage en orange et [texte](/contact/) un lien.
 
 ## Modifier les visuels
 
