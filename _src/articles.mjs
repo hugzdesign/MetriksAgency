@@ -285,4 +285,194 @@ Le site de [RMC Bâtiment](https://www.rmcbatiment.fr/), entreprise de maçonner
 
 Vous voulez le même résultat ? Découvrez [la création de site internet](/creation-site-internet/) ou faites [l'autodiagnostic en une minute](/contact/#autodiagnostic).`,
   },
+  {
+    slug: "taches-a-automatiser-artisan",
+    title: "5 tâches qu'un artisan peut automatiser dès cette semaine",
+    seoTitle: "5 tâches à automatiser quand on est artisan · MetriKs",
+    desc: "Relances de devis, rappels de rendez-vous, saisies, demandes d'avis : cinq tâches répétitives qu'un artisan ou un commerçant peut faire tourner seules.",
+    cat: "Automatisation",
+    read: 4,
+    date: "2026-10-06",
+    intro: "Le soir, après le chantier ou la fermeture, il reste les devis à relancer, les rendez-vous à confirmer et les commandes à recopier. Ces tâches ne demandent aucun savoir-faire, juste du temps. Voici les cinq que vous pouvez confier à une machine sans perdre le contact avec vos clients.",
+    md: `## Comment repérer une tâche à automatiser
+
+Prenez votre dernière semaine et notez ce que vous avez fait plusieurs fois, de la même façon. Une tâche se prête bien à l'automatisation quand elle coche trois cases :
+
+- elle revient au moins une fois par semaine ;
+- elle suit toujours le même chemin ;
+- elle ne demande pas votre jugement de professionnel.
+
+Rédiger un devis demande votre expertise. Le relancer trois jours plus tard, non.
+
+## 1. Relancer les devis sans réponse
+
+Vous envoyez un devis, puis le silence. Le client hésite, compare, ou a simplement oublié. Une relance au bon moment suffit souvent à relancer la discussion, mais la faire à la main demande de tenir une liste et d'y penser.
+
+Une automatisation s'en charge : trois jours après l'envoi, si le devis n'est pas signé, votre client reçoit **un message court, écrit dans votre ton**, qui lui demande s'il a des questions. Vous choisissez le délai, le texte et le nombre de relances.
+
+## 2. Envoyer les rappels de rendez-vous
+
+Un rendez-vous oublié, c'est un créneau perdu et un déplacement pour rien. Un rappel la veille, par SMS ou par e-mail, réduit ce risque sans que vous ayez à décrocher le téléphone.
+
+Ce type de message relève de la relation avec votre client, pas de la publicité. La [CNIL](https://www.cnil.fr/fr/communication-electronique-quelles-regles) distingue bien les messages liés à une prestation en cours, comme un rappel ou une confirmation, des messages de prospection, qui obéissent à des règles plus strictes de consentement. Votre client doit tout de même savoir qu'il recevra ces rappels.
+
+## 3. Arrêter de recopier les commandes
+
+Une demande arrive par le formulaire de votre site, une autre par e-mail, une troisième par message. Vous les recopiez ensuite dans un tableur ou un carnet. Chaque copie prend du temps et laisse passer des erreurs.
+
+Une automatisation peut **ranger chaque demande au même endroit**, dès son arrivée : nom, téléphone, besoin, ville, photos jointes. Vous ouvrez un seul écran le matin et tout y est.
+
+## 4. Demander un avis Google après chaque prestation
+
+Vos clients contents laissent rarement un avis d'eux-mêmes. Ils le font quand on le leur demande, au bon moment, avec un lien direct.
+
+Une automatisation envoie ce lien quelques heures après la fin de la prestation ou l'envoi de la facture. Le message reste personnel et ne promet rien en échange : Google interdit les avis obtenus contre une remise ou un cadeau. L'article sur [les avis Google](/ressources/obtenir-avis-google/) détaille la méthode.
+
+## 5. Prévenir quand un dossier avance
+
+« Alors, où en est mon dossier ? » Cette question vous coûte des appels chaque semaine. Un message automatique peut prévenir votre client à chaque étape : commande de matériel reçue, date d'intervention fixée, travaux terminés.
+
+Pour aller plus loin, un [portail client](/ressources/portail-client-suivi-dossier/) lui permet de suivre son dossier lui-même, à toute heure.
+
+## Ce qu'il ne faut pas automatiser
+
+Gardez pour vous tout ce qui demande d'écouter ou de décider :
+
+- le premier échange avec un nouveau client ;
+- la réponse à une réclamation ou à un avis négatif ;
+- le chiffrage d'un devis ;
+- l'annonce d'un retard ou d'un imprévu.
+
+Vos clients choisissent un artisan pour la personne autant que pour le travail. L'automatisation vous libère du temps pour ces moments-là.
+
+> Un bon test : si votre client lisait le message automatique, penserait-il que vous l'avez écrit vous-même ? Si la réponse est non, réécrivez-le.
+
+## Par où commencer
+
+Choisissez une seule tâche, celle qui vous pèse le plus, et mettez-la en place. Vous verrez vite le temps gagné, et vous saurez quoi faire ensuite.
+
+MetriKs repère avec vous ces tâches pendant le [diagnostic offert](/contact/) de 45 minutes, puis les fait tourner seules avec des messages écrits dans votre ton. Découvrez la page [automatisation](/automatisation/) ou faites d'abord [l'autodiagnostic en une minute](/contact/#autodiagnostic).`,
+  },
+  {
+    slug: "crm-sur-mesure-ou-logiciel-du-marche",
+    title: "CRM sur mesure ou logiciel du marché : comment choisir",
+    seoTitle: "CRM sur mesure ou logiciel du marché : choisir · MetriKs",
+    desc: "Logiciel du marché ou CRM sur mesure ? Les cinq questions à vous poser et les erreurs à éviter avant de choisir l'outil de gestion de vos clients.",
+    cat: "Logiciel sur mesure",
+    read: 4,
+    date: "2026-10-06",
+    intro: "Vos clients vivent dans un tableur, vos devis dans un dossier et vos rappels sur des post-it. Vous savez qu'il vous faut un outil. Reste à savoir lequel : un logiciel tout prêt, ou un outil construit pour vous.",
+    md: `## D'abord, à quoi sert un CRM
+
+Un CRM rassemble tout ce qui concerne vos clients au même endroit : leurs coordonnées, vos échanges, vos devis, vos relances et l'historique de leurs commandes. Le but est simple. Quand un client appelle, vous retrouvez tout en quelques secondes. Et quand vous êtes absent, votre équipe aussi.
+
+## Le logiciel du marché : rapide et prêt à l'emploi
+
+Les logiciels vendus par abonnement ont de vrais atouts. Vous pouvez commencer dès demain, le prix de départ est connu et l'éditeur gère les mises à jour.
+
+Leur limite tient à leur nature : ils sont faits pour des milliers d'entreprises différentes. Vous devez donc **adapter votre façon de travailler à l'outil**. Les étapes ne portent pas vos noms, certains champs ne vous servent à rien, et la fonction qui vous manque se trouve souvent dans l'offre supérieure.
+
+## L'outil sur mesure : construit autour de votre méthode
+
+Un outil sur mesure part de votre façon de faire. Vos étapes, vos mots, vos documents. Il ne contient que ce dont vous avez besoin, et il évolue avec votre entreprise.
+
+Il demande en revanche un investissement de départ et quelques semaines de construction. Il faut aussi prévoir qui le fait évoluer et le maintient ensuite.
+
+| | Logiciel du marché | Outil sur mesure |
+| --- | --- | --- |
+| Mise en route | Immédiate | Quelques semaines |
+| Coût | Abonnement mensuel, souvent par utilisateur | Investissement de départ, puis maintenance |
+| Adaptation | Vous vous adaptez à l'outil | L'outil s'adapte à vous |
+| Évolutions | Selon la feuille de route de l'éditeur | Selon vos besoins |
+
+## Cinq questions pour trancher
+
+1. **Votre métier suit-il un parcours standard ?** Une vente simple, un client, une facture : un logiciel du marché suffit souvent. Un chantier en plusieurs phases, avec des fournisseurs, des sous-traitants et des photos : le sur-mesure prend l'avantage.
+2. **Combien de personnes l'utiliseront ?** Les abonnements se paient souvent par utilisateur. Avec une équipe qui grandit, faites le calcul sur trois ans.
+3. **Avez-vous déjà essayé un logiciel du marché ?** Si votre équipe l'a abandonné au bout d'un mois, ce n'est pas un hasard. L'outil ne collait pas à votre réalité.
+4. **Vos clients doivent-ils y avoir accès ?** Un espace où vos clients suivent leur dossier change la relation. Peu de logiciels du marché le proposent simplement.
+5. **Que voulez-vous relier ?** Votre site, votre agenda, votre facturation : plus les liens sont nombreux, plus le sur-mesure devient intéressant.
+
+## Les erreurs à éviter
+
+- Choisir l'outil le plus complet. Une fonction que personne n'utilise encombre l'écran et décourage l'équipe.
+- Oublier la prise en main. Le meilleur outil ne sert à rien si votre équipe continue avec son tableur.
+- Tout construire d'un coup. Commencez par le cœur, puis ajoutez ce qui manque.
+- Négliger les données. Vos fichiers clients contiennent des données personnelles. La [CNIL](https://www.cnil.fr/fr/les-durees-de-conservation-des-donnees) rappelle qu'on ne les garde pas indéfiniment : chaque information a une durée de conservation liée à son usage.
+
+> Un signe qui ne trompe pas : si vous dites souvent « le logiciel ne permet pas de… », l'outil vous impose déjà sa façon de travailler.
+
+## Et si un logiciel du marché suffit ?
+
+Alors prenez-le. Un outil sur mesure se justifie quand votre méthode fait votre différence et qu'aucun outil existant ne la respecte.
+
+Pendant le [diagnostic offert](/contact/), MetriKs écoute comment vous travaillez et vous dit franchement si un logiciel existant vous suffit. Si ce n'est pas le cas, découvrez ce que MetriKs construit sur la page [logiciel sur mesure](/logiciel-sur-mesure/).`,
+  },
+  {
+    slug: "portail-client-suivi-dossier",
+    title: "Portail client : vos clients suivent leur dossier sans vous appeler",
+    seoTitle: "Portail client : le suivi de dossier sans appels · MetriKs",
+    desc: "Avec un portail client, vos clients suivent leur dossier, envoient leurs documents et posent leurs questions au même endroit. Ce qu'il change, et pour qui.",
+    cat: "Logiciel sur mesure",
+    read: 3,
+    date: "2026-10-06",
+    intro: "Votre téléphone sonne pendant que vous travaillez. C'est un client qui veut savoir où en est son dossier. Rien n'a changé depuis hier, mais il ne pouvait pas le savoir. Un portail client répond à cette question avant qu'il ne la pose.",
+    md: `## Ce qu'est un portail client
+
+Un portail client est un espace en ligne, protégé par un identifiant, où chacun de vos clients retrouve son dossier. Il y voit l'avancée, les documents, les prochaines étapes et peut vous écrire. Il l'ouvre depuis son téléphone ou son ordinateur, à l'heure qui l'arrange.
+
+## Ce qu'il change pour vos clients
+
+Votre client attend surtout de **savoir où il en est**. L'inquiétude naît du silence, rarement du délai lui-même.
+
+Avec un portail, il voit :
+
+- l'étape en cours et les étapes suivantes ;
+- les documents à signer ou à fournir ;
+- les dates prévues ;
+- l'historique de vos échanges.
+
+Il n'a plus besoin de chercher un e-mail perdu ou de rappeler pour une pièce jointe.
+
+## Ce qu'il change pour vous
+
+Vous recevez moins d'appels de suivi, et ceux qui restent portent sur de vraies questions. Les documents arrivent au bon endroit au lieu de se perdre entre vos e-mails et vos messages. Et quand un collègue reprend un dossier, il trouve tout l'historique.
+
+Le portail renvoie aussi une image : celle d'une entreprise organisée, qui n'a rien à cacher sur l'avancée du travail.
+
+## Pour quels métiers
+
+Le portail client sert dès qu'un dossier dure plus de quelques jours et passe par plusieurs étapes :
+
+- les artisans du bâtiment, de la signature du devis à la réception des travaux ;
+- les cabinets et indépendants qui demandent des pièces à leurs clients ;
+- les agences et prestataires qui font valider des étapes ;
+- les centres de formation qui suivent des inscriptions.
+
+## Ce qu'un bon portail contient
+
+### Une avancée claire
+
+Une barre ou une liste d'étapes, avec l'étape en cours bien visible. Votre client comprend en un regard.
+
+### Les demandes de documents
+
+Vous demandez une pièce, il la dépose directement. Vous voyez ce qui manque sans tenir de liste à part.
+
+### Les messages au même endroit
+
+Une question posée dans le portail reste attachée au dossier. Plus de recherche dans trois messageries différentes.
+
+### Des notifications utiles
+
+Un e-mail prévient votre client quand une étape avance ou quand vous attendez quelque chose de lui. Il n'a pas besoin d'ouvrir le portail chaque jour.
+
+> Restez simple. Un portail que votre client comprend sans mode d'emploi vaut mieux qu'un portail riche qu'il n'ouvre jamais.
+
+## Un exemple que vous pouvez voir
+
+Chez MetriKs, chaque client suit la création de son site dans son propre espace : l'avancée en direct, les éléments à envoyer, les questions au même endroit. Vous pouvez découvrir son fonctionnement sur la page [méthode et espace client](/methode/).
+
+C'est ce type d'outil que MetriKs construit pour d'autres métiers, autour de votre façon de travailler. Découvrez la page [logiciel sur mesure](/logiciel-sur-mesure/), lisez aussi [CRM sur mesure ou logiciel du marché](/ressources/crm-sur-mesure-ou-logiciel-du-marche/), ou parlez de votre projet pendant le [diagnostic offert](/contact/).`,
+  },
 ];

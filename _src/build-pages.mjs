@@ -1152,6 +1152,8 @@ pages.push({
 
     ${section({ id: "questions", title: "Vos <em>questions.</em>", content: faq(logFaq) })}
 
+    ${reads(B, ["crm-sur-mesure-ou-logiciel-du-marche", "portail-client-suivi-dossier"])}
+
     ${related(B, "logiciel-sur-mesure")}
 
     ${contactCta(B, `Racontez à MetriKs comment vous travaillez : ${hl("45 minutes offertes")} pour voir ce qu'un outil fait pour vous changerait. En rendez-vous près du Havre ou en visio. Sans engagement.`)}`,
@@ -1209,7 +1211,7 @@ pages.push({
 
     ${section({ id: "questions", title: "Vos <em>questions.</em>", content: faq(autoFaq) })}
 
-    ${reads(B, ["obtenir-avis-google", "fiche-google-business-profile"])}
+    ${reads(B, ["taches-a-automatiser-artisan", "obtenir-avis-google"])}
 
     ${related(B, "automatisation")}
 
@@ -1464,7 +1466,7 @@ pages.push({
 });
 
 for (const a of ARTICLES) {
-  const others = ARTICLES.filter((x) => x.slug !== a.slug).slice(0, 3);
+  const others = ARTICLES.filter((x) => x.slug !== a.slug).sort((x, y) => (y.cat === a.cat) - (x.cat === a.cat) || y.date.localeCompare(x.date)).slice(0, 3);
   pages.push({
     slug: "ressources/" + a.slug,
     current: "ressources",
