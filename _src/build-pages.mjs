@@ -35,6 +35,8 @@ const SERVICES = [
   { slug: "refonte-site-internet", name: "Refonte de site", menu: "Refonte de site", line: "Pour donner l'adresse de votre site sans jamais hésiter." },
   { slug: "referencement-local", name: "Référencement local", menu: "Référencement local", line: "Quand on cherche votre métier près de chez soi, on tombe sur vous." },
   { slug: "identite-visuelle", name: "Identité visuelle", menu: "Identité visuelle", line: "Une image qu'on reconnaît, de l'enseigne à la carte de visite." },
+  { slug: "logiciel-sur-mesure", name: "Logiciel sur mesure", menu: "Logiciel sur mesure", line: "Votre méthode devient un outil pour toute l'équipe." },
+  { slug: "automatisation", name: "Automatisation", menu: "Automatisation", line: "Vos tâches répétitives tournent seules." },
 ];
 
 const btn = (href, label, kind = "signal", extra = "") =>
@@ -115,7 +117,7 @@ function footer(B) {
     <div class="wrap foot__grid">
       <div class="foot__brand">
         <a class="wordmark" href="${B || "./"}">Metri<span class="k">K</span>s</a>
-        <p>Agence web basée à Montivilliers, près du Havre. Sites internet et identités visuelles pour des clients partout en France.</p>
+        <p>Agence web basée à Montivilliers, près du Havre. Sites internet, identités visuelles, logiciels et automatisations pour des clients partout en France.</p>
       </div>
       <nav class="foot__col" aria-label="Services">
         <p>Services</p>
@@ -346,8 +348,8 @@ const QUIZ = [
     tip: "Une fiche Google complète et des pages pensées pour votre ville, pour sortir là où vos clients cherchent.", link: "referencement-local/", label: "Référencement local" },
   { q: "Combien d'avis Google vos clients vous ont-ils laissés ?", o: ["Plus de vingt, dont des récents", "Quelques-uns", "Aucun ou presque"],
     tip: "Demander un avis à chaque client content. Vos futurs clients les lisent avant d'appeler.", link: "referencement-local/", label: "Référencement local" },
-  { q: "Donnez-vous l'adresse de votre site avec fierté ?", o: ["Oui, sans hésiter", "Ça dépend à qui", "Plutôt pas"],
-    tip: "Une allure à la hauteur de votre travail, pour ne plus hésiter à donner votre adresse.", link: "refonte-site-internet/", label: "Refonte de site" },
+  { q: "Combien de temps passez-vous chaque semaine à relancer, rappeler ou recopier ?", o: ["Presque rien", "Quelques heures", "Trop, je ne compte plus"],
+    tip: "Faire tourner seules vos relances, vos rappels et vos saisies, pour rendre ces heures à votre métier.", link: "automatisation/", label: "Automatisation" },
   { q: "D'où viennent vos nouveaux clients ?", o: ["Souvent d'internet", "Surtout du bouche-à-oreille", "Je ne sais pas vraiment"],
     tip: "Un site qui prend le relais de votre réputation : la personne à qui on vous recommande vous cherche d'abord sur Google.", link: "creation-site-internet/", label: "Création de site" },
 ];
@@ -443,6 +445,39 @@ const visPortal = () => `<div class="portal" data-portal>
               <p class="portal__msg portal__msg--mk">C'est en ligne sur la page Contact. Dites-moi si ça vous va.</p>
             </div>
           </div>
+        </div>`;
+
+const visApp = () => `<div class="app" aria-hidden="true">
+          <div class="app__top"><span class="app__dot"></span><b>Suivi des chantiers</b><span class="app__search">Rechercher un client</span></div>
+          <div class="app__board">
+            <div class="app__col"><p>Devis envoyés <i>3</i></p>
+              <div class="app__card"><b>Cuisine</b><span>Harfleur</span><em class="app__tag">J+3 · relancé</em></div>
+              <div class="app__card"><b>Toiture</b><span>Le Havre</span></div>
+              <div class="app__card app__card--ghost"></div>
+            </div>
+            <div class="app__col"><p>Acceptés <i>2</i></p>
+              <div class="app__card app__card--move"><b>Salle de bain</b><span>Montivilliers</span><em class="app__tag app__tag--ok">Signé</em></div>
+              <div class="app__card"><b>Terrasse</b><span>Épouville</span></div>
+            </div>
+            <div class="app__col"><p>En cours <i>2</i></p>
+              <div class="app__card"><b>Façade</b><span>Octeville-sur-Mer</span><span class="app__bar"><i style="width:70%"></i></span></div>
+              <div class="app__card"><b>Isolation</b><span>Sainte-Adresse</span><span class="app__bar"><i style="width:35%"></i></span></div>
+            </div>
+          </div>
+        </div>`;
+
+const FLOW = [
+  ["Devis sans réponse depuis 3 jours", "Relance polie envoyée au client"],
+  ["Rendez-vous demain à 14 h", "Rappel envoyé par SMS"],
+  ["Commande reçue par e-mail", "Ajoutée au tableau de suivi"],
+  ["Prestation terminée", "Lien vers votre fiche Google envoyé"],
+];
+const visFlow = () => `<div class="flow" aria-hidden="true">
+          <p class="flow__kw"><span class="flow__live"></span>Automatisations actives</p>
+          <ol>
+${FLOW.map(([a, b], i) => `            <li style="--i:${i}"><span class="flow__when">${a}</span><span class="flow__do"><span class="portal__check">${CHECK}</span>${b}</span></li>`).join("\n")}
+          </ol>
+          <p class="flow__foot">Ce matin, <b>4 tâches</b> faites sans vous.</p>
         </div>`;
 
 const visPosters = (B) => {
@@ -559,7 +594,7 @@ const ORG = {
   "@type": "ProfessionalService",
   "@id": SITE + "#organization",
   name: "MetriKs Agency",
-  description: "Agence web basée à Montivilliers, près du Havre : création et refonte de sites internet, référencement local et identité visuelle pour les entreprises, commerces, artisans et clubs sportifs, partout en France.",
+  description: "Agence web basée à Montivilliers, près du Havre : création et refonte de sites internet, référencement local, identité visuelle, logiciels sur mesure et automatisation pour les entreprises, commerces, artisans et clubs sportifs, partout en France.",
   url: SITE,
   image: SITE + "assets/img/og-image.jpg",
   logo: SITE + "assets/img/apple-touch-icon.png",
@@ -573,7 +608,7 @@ const ORG = {
     { "@type": "City", name: "Gonfreville-l'Orcher" }, { "@type": "City", name: "Octeville-sur-Mer" },
     { "@type": "AdministrativeArea", name: "Seine-Maritime" }, { "@type": "AdministrativeArea", name: "Normandie" }, { "@type": "Country", name: "France" },
   ],
-  knowsAbout: ["Création de site internet", "Refonte de site web", "Référencement local", "Identité visuelle"],
+  knowsAbout: ["Création de site internet", "Refonte de site web", "Référencement local", "Identité visuelle", "Logiciel sur mesure", "CRM", "Portail client", "Automatisation des tâches"],
   sameAs: D.projects.map((p) => p.url).filter(Boolean),
 };
 const crumbsLd = (slug, name, trail = []) => ({
@@ -604,7 +639,7 @@ pages.push({
   slug: "",
   home: true,
   title: "MetriKs · Agence web à Montivilliers, près du Havre",
-  desc: "Sites internet et identités visuelles pour les artisans, commerçants et indépendants qui aiment leur métier. Agence web à Montivilliers, près du Havre.",
+  desc: "Sites internet, logiciels sur mesure et automatisations pour les entreprises qui aiment leur métier. Agence web à Montivilliers, près du Havre.",
   schema: [ORG, { "@type": "WebSite", "@id": SITE + "#website", url: SITE, name: "MetriKs Agency", inLanguage: "fr-FR", publisher: { "@id": SITE + "#organization" } }],
   main: (B) => `<!-- HERO -->
     <section class="hero" id="top" aria-labelledby="hero-title">
@@ -659,7 +694,7 @@ pages.push({
       <div class="wrap services__grid">
         <div class="services__aside">
           <h2 class="h-xl split" id="services-title">Être trouvé.<br /><em>Être choisi.</em></h2>
-          <p class="services__intro">MetriKs s'occupe de tout ce qui se passe avant le premier coup de fil : ce qu'on trouve sur Google, et ${hl("ce qu'on ressent en découvrant votre site.")}</p>
+          <p class="services__intro">Avant le premier coup de fil, MetriKs soigne ce qu'on trouve sur Google et ${hl("ce qu'on ressent en découvrant votre site.")} Après, elle vous rend du temps : vos outils et vos tâches répétitives travaillent pour vous.</p>
           <div class="services__screens" aria-hidden="true">
             <div class="services__screen" data-mock="0"></div>
             <div class="services__screen services__screen--b" data-mock="1"></div>
@@ -1053,6 +1088,132 @@ ${D.clubs.map((c) => `          <li><a href="${B}clubs-sportifs/"><figure class=
     ${related(B, "identite-visuelle")}
 
     ${contactCta(B)}`,
+});
+
+/* ---------------- Logiciel sur mesure ---------------- */
+const logFaq = [
+  ["Un logiciel sur mesure, c'est réservé aux grandes entreprises ?", "Non. Un artisan, un commerce ou une PME y gagne autant : l'outil fait ce dont vous avez besoin, sans fonctions inutiles à payer ni à apprendre."],
+  ["Pourquoi ne pas prendre un logiciel du marché ?", "Un logiciel du marché vous demande d'adopter sa façon de travailler. Un outil sur mesure part de la vôtre. Pendant le diagnostic offert, MetriKs vous dit franchement si un outil existant vous suffit."],
+  ["Peut-on commencer petit ?", "Oui. MetriKs peut démarrer par l'essentiel, puis ajouter des fonctions au fil de vos besoins."],
+  ["Combien de temps faut-il ?", "Tout dépend de l'outil. MetriKs vous donne un délai précis avec le devis, après le diagnostic."],
+];
+pages.push({
+  slug: "logiciel-sur-mesure",
+  title: "Logiciel sur mesure, CRM et portail client · MetriKs",
+  desc: "CRM, portail client, outil interne : MetriKs transforme votre façon de travailler en logiciel sur mesure. Agence près du Havre, partout en France.",
+  schema: [crumbsLd("logiciel-sur-mesure", "Logiciel sur mesure"), serviceLd("logiciel-sur-mesure", "Logiciel sur mesure", "Conception de logiciels métier sur mesure : CRM, portail client, outils internes, accessibles sur ordinateur, tablette et téléphone."), faqLd(logFaq)],
+  main: (B) => `${phero({
+    B, kind: "app", kw: "Logiciel sur mesure", crumb: "Logiciel sur mesure",
+    lines: ["Votre méthode,", "<em>en logiciel.</em>"],
+    lead: `Votre façon de suivre un chantier, un client ou une commande, vous l'avez inventée. Elle marche. Mais elle vit dans votre tête, un tableur et des post-it. MetriKs en fait ${hl("un outil que toute votre équipe utilise.")}`,
+    ctas: btn(B + "contact/", "Parler de mon outil") + btn(B + "methode/", "Voir l'espace client MetriKs", "line"),
+    visual: visApp(),
+  })}
+
+    ${band(["CRM", "Portail client", "Outil interne", "Suivi de dossiers", "Planning"])}
+
+    ${feel({
+      id: "absent",
+      title: "Le jour où vous n'êtes pas là,<br /><em>tout continue.</em>",
+      body: [
+        `Aujourd'hui, la moindre question sur un dossier remonte jusqu'à vous. ${hl("Parce que tout est dans votre tête.")}`,
+        "Un outil construit autour de votre méthode la rend visible et partagée. Votre équipe trouve la bonne information sans vous appeler. Vos clients savent où en est leur dossier. Et vous retrouvez des soirées.",
+      ],
+    })}
+
+    ${section({
+      id: "outils", title: "Ce que MetriKs<br /><em>construit pour vous.</em>",
+      content: offer([
+        ["Un CRM qui parle votre langue", `Vos clients, vos devis, vos relances, avec ${hl("vos étapes et vos mots")}, pas ceux d'un logiciel générique.`],
+        ["Un portail pour vos clients", `Ils suivent leur dossier, envoient leurs documents et posent leurs questions ${hl("sans vous appeler.")}`],
+        ["Les outils internes qui vous manquent", "Planning, suivi de chantier, bons d'intervention, stock : l'outil que vous cherchez depuis des années, fait pour votre équipe."],
+        ["Sur tous les écrans", `Ordinateur, tablette ou téléphone : ${hl("au bureau comme sur le terrain.")}`],
+      ]),
+    })}
+
+    ${feel({
+      id: "preuve",
+      title: "MetriKs s'en sert<br /><em>tous les jours.</em>",
+      body: [
+        `Chaque client de MetriKs suit son projet dans son propre espace : l'avancée en direct, les éléments à envoyer, les questions au même endroit. ${hl("C'est ce genre d'outil que MetriKs construit pour votre entreprise.")}`,
+      ],
+      aside: `<p><a class="ids__all" href="${B}methode/">Découvrir l'espace client</a></p>`,
+    })}
+
+    ${section({
+      id: "etapes-logiciel", title: "Comment<br /><em>ça se passe.</em>",
+      content: offer([
+        ["Vous racontez votre méthode", `Pendant le diagnostic offert, MetriKs écoute comment vous travaillez vraiment, ${hl("avec vos astuces et vos exceptions.")}`],
+        ["Vous validez les écrans", "Avant la moindre ligne de code, vous voyez votre futur outil et vous dites ce qui manque."],
+        ["Vous testez au fil de l'eau", `MetriKs construit l'outil étape par étape. ${hl("Vous l'essayez avec votre équipe")} pendant qu'il prend forme.`],
+        ["Vous travaillez avec", "Mise en service, prise en main avec votre équipe, puis MetriKs reste joignable depuis votre espace client."],
+      ]),
+    })}
+
+    ${section({ id: "questions", title: "Vos <em>questions.</em>", content: faq(logFaq) })}
+
+    ${related(B, "logiciel-sur-mesure")}
+
+    ${contactCta(B, `Racontez à MetriKs comment vous travaillez : ${hl("45 minutes offertes")} pour voir ce qu'un outil fait pour vous changerait. En rendez-vous près du Havre ou en visio. Sans engagement.`)}`,
+});
+
+/* ---------------- Automatisation ---------------- */
+const autoFaq = [
+  ["Faut-il changer mes outils ?", "Pas forcément. MetriKs part de ce que vous utilisez déjà quand c'est possible, et ne vous propose autre chose que si c'est plus simple pour vous."],
+  ["Et si une automatisation se trompe ?", "Chaque automatisation est testée avec vous avant sa mise en route, et vous pouvez la suspendre à tout moment."],
+  ["Par quoi commencer ?", "Par la tâche qui vous pèse le plus. Le diagnostic offert sert justement à la repérer."],
+  ["Mes clients vont-ils recevoir des messages froids et robotiques ?", "Non. Les messages sont écrits avec vous, dans votre ton. Votre client reçoit une relance ou un rappel comme si vous l'aviez écrit vous-même."],
+];
+pages.push({
+  slug: "automatisation",
+  title: "Automatisation des tâches répétitives · MetriKs",
+  desc: "Relances de devis, rappels de rendez-vous, saisies, avis Google : MetriKs automatise vos tâches répétitives. Agence près du Havre, partout en France.",
+  schema: [crumbsLd("automatisation", "Automatisation"), serviceLd("automatisation", "Automatisation des tâches répétitives", "Automatisation des relances de devis, rappels de rendez-vous, saisies et demandes d'avis clients pour les entreprises."), faqLd(autoFaq)],
+  main: (B) => `${phero({
+    B, kind: "flow", kw: "Automatisation", crumb: "Automatisation",
+    lines: ["Ce qui se répète", "<em>tourne tout seul.</em>"],
+    lead: `Relancer un devis. Envoyer un rappel de rendez-vous. Recopier une commande. Vous le faites à la main, chaque semaine. MetriKs ${hl("rend ces heures à votre métier.")}`,
+    ctas: btn(B + "contact/", "Gagner du temps") + btn(B + "#services", "Tous les services", "line"),
+    visual: visFlow(),
+  })}
+
+    ${band(["Relances", "Rappels", "Saisies", "Avis Google", "Notifications"])}
+
+    ${feel({
+      id: "petits",
+      title: "Pas réservé<br /><em>aux grandes entreprises.</em>",
+      body: [
+        `Une petite structure a justement ${hl("le plus à gagner.")} Chaque heure rendue retourne sur le chantier, en cabine ou au comptoir.`,
+        "MetriKs repère avec vous les tâches qui reviennent chaque semaine, puis les fait tourner seules. Vous gardez la main sur tout.",
+      ],
+    })}
+
+    ${section({
+      id: "taches", title: "Ce qui peut<br /><em>tourner seul.</em>",
+      content: offer([
+        ["Les relances de devis", `Un devis reste sans réponse ? Votre client reçoit ${hl("une relance polie, au bon moment")}, sans que vous y pensiez.`],
+        ["Les rappels de rendez-vous", "La veille, votre client reçoit un rappel. Moins d'oublis, moins de créneaux perdus."],
+        ["Les saisies en double", `Une commande arrive par e-mail ou par formulaire ? Elle ${hl("se range toute seule")} au bon endroit.`],
+        ["Les demandes d'avis", `Après chaque prestation, votre client reçoit le lien vers votre fiche Google. ${hl("Vos avis grandissent sans effort.")}`],
+      ]),
+    })}
+
+    ${section({
+      id: "etapes-auto", title: "Comment<br /><em>ça se passe.</em>",
+      content: offer([
+        ["Vous racontez votre semaine", `MetriKs repère ce qui revient sans cesse et ${hl("ce qui vous coûte le plus de temps.")}`],
+        ["MetriKs met en place", "Les messages sont écrits avec vous, dans votre ton. Chaque automatisation est testée avant de tourner."],
+        ["Vous gardez la main", `Vous voyez ce qui part et quand. ${hl("Une automatisation se suspend en un clic.")}`],
+      ]),
+    })}
+
+    ${section({ id: "questions", title: "Vos <em>questions.</em>", content: faq(autoFaq) })}
+
+    ${reads(B, ["obtenir-avis-google", "fiche-google-business-profile"])}
+
+    ${related(B, "automatisation")}
+
+    ${contactCta(B, `Quelle tâche vous pèse le plus ? ${hl("45 minutes offertes")} pour la repérer et voir comment la faire tourner seule. En rendez-vous près du Havre ou en visio. Sans engagement.`)}`,
 });
 
 /* ---------------- Réalisations ---------------- */
