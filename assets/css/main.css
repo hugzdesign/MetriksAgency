@@ -1208,3 +1208,7 @@ html[data-palette="doux"] {
   .app__col:last-child { display: none; }
   .app__search { display: none; }
 }
+
+/* Menu Services : les descriptions reviennent à la ligne dans le cadre */
+.bug__nav .drop__panel a { white-space: normal; }
+.drop__panel { width: 400px; }
