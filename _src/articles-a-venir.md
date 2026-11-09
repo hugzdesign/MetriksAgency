@@ -3,7 +3,7 @@
 Un article par semaine, dans l'ordre. L'article publié est coché [x].
 Chaque ligne : titre de travail · catégorie · recherche Google visée.
 
-- [ ] Site internet ou page Facebook : de quoi un artisan a vraiment besoin · Création de site · site internet ou page facebook artisan
+- [x] Site internet ou page Facebook : de quoi un artisan a vraiment besoin · Création de site · site internet ou page facebook artisan
 - [x] 5 tâches qu'un artisan peut automatiser dès cette semaine · Automatisation · automatiser tâches artisan
 - [ ] Combien de temps faut-il pour créer un site vitrine · Création de site · délai création site internet
 - [ ] Nom de domaine : comment bien le choisir pour son entreprise · Création de site · choisir nom de domaine entreprise

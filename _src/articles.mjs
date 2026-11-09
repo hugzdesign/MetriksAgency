@@ -475,4 +475,94 @@ Chez MetriKs, chaque client suit la création de son site dans son propre espace
 
 C'est ce type d'outil que MetriKs construit pour d'autres métiers, autour de votre façon de travailler. Découvrez la page [logiciel sur mesure](/logiciel-sur-mesure/), lisez aussi [CRM sur mesure ou logiciel du marché](/ressources/crm-sur-mesure-ou-logiciel-du-marche/), ou parlez de votre projet pendant le [diagnostic offert](/contact/).`,
   },
+  {
+    slug: "site-internet-ou-page-facebook",
+    title: "Site internet ou page Facebook : de quoi un artisan a vraiment besoin",
+    seoTitle: "Site internet ou page Facebook pour artisan · MetriKs",
+    desc: "Page Facebook, site internet, fiche Google : ce que fait chaque outil, leurs limites et comment choisir selon la façon dont vos clients vous trouvent.",
+    cat: "Création de site",
+    read: 5,
+    date: "2026-11-09",
+    intro: "Vous avez une page Facebook, vos clients vous y écrivent, et vous vous demandez si un site vaut vraiment la peine. La réponse dépend de la façon dont vos futurs clients vous cherchent. Voici de quoi trancher, sans jargon.",
+    md: `## Deux outils, deux rôles
+
+Une page Facebook et un site internet ne font pas le même travail. La page Facebook sert à garder le contact avec des gens qui vous connaissent déjà : vos clients, leurs voisins, leurs amis. Le site sert à être trouvé par ceux qui ne vous connaissent pas encore, au moment où ils cherchent votre métier sur Google.
+
+Pour un artisan, la différence compte. Votre futur client ne fait pas défiler son fil d'actualité en espérant tomber sur un plombier. Il tape « plombier Montivilliers » quand l'eau coule sous l'évier.
+
+| | Page Facebook | Site internet |
+| --- | --- | --- |
+| Qui vous voit | Surtout vos abonnés et leurs proches | Les gens qui cherchent votre métier sur Google |
+| Coût | Gratuit | Un budget de départ, puis l'hébergement et le nom de domaine |
+| Ce que vous contrôlez | Vos publications, dans le cadre fixé par Meta | Tout : textes, pages, adresse, présentation |
+| Point fort | Montrer la vie de l'entreprise, échanger | Expliquer vos prestations et recevoir des demandes |
+| Point faible | Les publications passent vite et se perdent | Il faut le faire vivre et le tenir à jour |
+
+## Ce que fait bien une page Facebook
+
+Ne la supprimez pas. Une page Facebook a de vrais atouts quand on est artisan.
+
+- Elle est gratuite et se crée en quelques minutes.
+- Elle montre que vous êtes actif : un chantier fini posté hier rassure.
+- Vos clients peuvent la partager à leurs proches. C'est le bouche-à-oreille, en ligne.
+- Elle permet de répondre vite aux messages.
+
+Les réseaux sociaux sont d'ailleurs bien installés dans les entreprises. Selon l'[INSEE](https://www.insee.fr/fr/statistiques/8616835), en 2023, 65 % des entreprises de 10 salariés ou plus avaient un profil sur un réseau social, et 69 % un site web.
+
+## Ses limites quand on cherche de nouveaux clients
+
+### Vous n'êtes pas chez vous
+
+Votre page vit sur la plateforme de Meta, avec ses règles. Elles peuvent changer sans qu'on vous demande votre avis. En avril 2022, des utilisateurs ont vu leur compte Facebook désactivé du jour au lendemain, avec un simple message renvoyant aux Standards de la communauté, comme le racontait le [Blog du Modérateur](https://www.blogdumoderateur.com/facebook-comptes-desactives-sans-raison/). Si toute votre présence en ligne tient sur un compte, **un blocage vous rend invisible**.
+
+### Vos publications défilent
+
+Une belle photo de terrasse publiée en mars a disparu du fil en avril. Sur une page, l'information se range par date, pas par sujet. Votre client qui veut savoir si vous posez aussi des clôtures doit remonter des mois de publications. Il abandonne souvent avant.
+
+### Tout le monde ne cherche pas sur Facebook
+
+Une partie de vos futurs clients n'a pas de compte, ou ne l'ouvre jamais pour trouver un artisan. Ceux-là passent par Google. C'est là qu'il faut être.
+
+## Ce qu'un site vous apporte en plus
+
+Un site travaille pour vous, même quand vous êtes sur un chantier.
+
+- **Il répond aux recherches Google.** Une page par prestation, avec votre ville, vous donne une chance de sortir sur « rénovation salle de bain Le Havre ».
+- **Il range l'information.** Vos services, votre zone, vos photos de chantiers, vos garanties : chaque chose a sa place.
+- **Il vous appartient.** Votre nom de domaine, vos textes et vos photos restent à vous.
+- **Il travaille avec votre fiche Google.** La fiche affiche un lien vers votre site, et les deux se renforcent.
+
+Pour savoir quoi mettre sur ce site, l'article sur [les 7 éléments qui font décrocher le téléphone](/ressources/site-artisan-elements-indispensables/) donne la liste.
+
+## Et la fiche Google, dans tout ça ?
+
+C'est souvent l'outil le plus rentable pour un artisan, et beaucoup l'oublient. Votre fiche d'établissement Google vous fait apparaître sur la carte quand quelqu'un cherche votre métier près de chez lui. Google précise qu'elle se gère [sans frais](https://support.google.com/business/answer/7039811?hl=fr), et qu'elle convient aussi aux prestataires qui se déplacent chez leurs clients.
+
+Si vous ne deviez faire qu'une chose cette semaine, ce serait celle-là. Les réglages qui comptent sont détaillés dans le guide de [la fiche Google](/ressources/fiche-google-business-profile/).
+
+## Alors, de quoi avez-vous besoin ?
+
+Tout dépend d'où viennent vos clients aujourd'hui.
+
+1. **Ils viennent surtout du bouche-à-oreille et votre carnet est plein.** Une fiche Google soignée et une page Facebook active peuvent suffire pour l'instant.
+2. **Vous voulez des clients au-delà de votre cercle.** Il vous faut un site, relié à votre fiche Google. Facebook reste utile pour montrer vos chantiers.
+3. **Vous visez des chantiers plus importants ou des clients professionnels.** Le site devient votre carte de visite : on vous cherchera avant de vous appeler.
+
+> Faites le test : tapez votre métier et votre ville sur Google, depuis votre téléphone. Si votre page Facebook n'apparaît pas et que vos concurrents ont un site, vous avez votre réponse.
+
+Les trois outils ne s'opposent pas. **La fiche Google fait venir, le site convainc, Facebook entretient le lien.** Votre page Facebook renvoie vers votre site, votre site affiche un lien vers votre page, et votre fiche Google pointe vers le site.
+
+Le budget vous freine ? L'article sur [le prix d'un site internet](/ressources/prix-site-internet-artisan-commercant/) donne les ordres de grandeur du marché.
+
+## Les erreurs à éviter
+
+- **Un site créé puis oublié.** Des horaires faux ou une actualité de 2021 font plus de tort que pas de site du tout.
+- **Une page Facebook sans lien vers le site.** Votre visiteur intéressé doit trouver vos prestations en un clic.
+- **Des informations différentes partout.** Le même nom, le même numéro et la même zone d'intervention sur la fiche Google, le site et Facebook.
+- **Tout miser sur un seul outil.** Si cet outil tombe, vos demandes s'arrêtent avec lui.
+
+## Faire le point sur votre cas
+
+Pendant un [diagnostic offert](/contact/) de 45 minutes, MetriKs regarde avec vous d'où viennent vos clients et ce qui vous manque. Si un site vous sert, découvrez [la création de site internet](/creation-site-internet/). Vous préférez d'abord vous situer seul ? Faites [l'autodiagnostic en une minute](/contact/#autodiagnostic).`,
+  },
 ];
