@@ -1228,11 +1228,15 @@ const CASES = {
     text: `Des chantiers montrés en grand, des prestations claires et ${hl("un contact visible sur chaque page")} pour qu'une visite devienne une demande de devis.`,
     tags: ["Création de site", "Galerie de chantiers", "Demande de devis"],
   },
+  "bayeux-fc": {
+    text: `Le site officiel du club, aux couleurs bleu et jaune. Actualités, calendrier, classement et équipes se consultent en un coup d'œil, et ${hl("le mur de partenaires donne envie de rejoindre l'aventure.")}`,
+    tags: ["Site de club", "Calendrier et résultats", "Espace partenaires"],
+  },
 };
 pages.push({
   slug: "realisations",
   title: "Réalisations : sites internet créés par MetriKs",
-  desc: "Les sites internet créés par MetriKs pour des entreprises normandes, de l'institut de beauté à la maçonnerie, et les visuels réalisés pour des clubs sportifs.",
+  desc: "Les sites internet créés par MetriKs pour des entreprises normandes, de l'institut de beauté au Bayeux FC, et les visuels réalisés pour des clubs sportifs.",
   schema: [crumbsLd("realisations", "Réalisations")],
   main: (B) => `${phero({
     B, kind: "stack", kw: "Réalisations", crumb: "Réalisations",
@@ -1258,7 +1262,7 @@ ${D.projects.map((p, i) => {
             <a class="btn btn--line" href="${p.url}" target="_blank" rel="noopener"><span>Visiter ${host}</span>${ARROW}</a>
           </div>
           <div class="case__shots">
-${p.captures.map((f, k) => `            <figure class="case__shot case__shot--${k}">${img(B, "assets/img/web/" + f, `${p.name} : capture ${k + 1} du site`, 1280, 800, ' loading="lazy"')}</figure>`).join("\n")}
+${p.captures.length ? p.captures.map((f, k) => `            <figure class="case__shot case__shot--${k}">${img(B, "assets/img/web/" + f, `${p.name} : capture ${k + 1} du site`, 1280, 800, ' loading="lazy"')}</figure>`).join("\n") : `            <figure class="case__shot case__shot--0" data-mock="${i}"></figure>`}
           </div>
         </div>
       </article>`;

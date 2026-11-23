@@ -88,6 +88,16 @@ window.METRIKS = {
       url: "https://www.rmcbatiment.fr/",
       captures: ["rmc-batiment-1.webp", "rmc-batiment-2.webp", "rmc-batiment-3.webp"],
       tone: ["#1c1f24", "#f1f1ee", "#e0a526"]
+    },
+    {
+      slug: "bayeux-fc",
+      name: "Bayeux FC",
+      place: "Bayeux",
+      sector: "Club de football",
+      headline: "Faites du bruit Bayeux",
+      url: "https://bayeux-fc.fr/",
+      captures: ["bayeux-fc-1.webp", "bayeux-fc-2.webp", "bayeux-fc-3.webp"],
+      tone: ["#005ca7", "#f2f2f2", "#ffd100"]
     }
     /* À ajouter quand les sites seront en ligne :
     { slug: "nh-services", name: "NH Services", place: "Le Havre", sector: "Nettoyage professionnel",
