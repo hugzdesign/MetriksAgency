@@ -5,7 +5,7 @@ Chaque ligne : titre de travail · catégorie · recherche Google visée.
 
 - [x] Site internet ou page Facebook : de quoi un artisan a vraiment besoin · Création de site · site internet ou page facebook artisan
 - [x] 5 tâches qu'un artisan peut automatiser dès cette semaine · Automatisation · automatiser tâches artisan
-- [ ] Combien de temps faut-il pour créer un site vitrine · Création de site · délai création site internet
+- [x] Combien de temps faut-il pour créer un site vitrine · Création de site · délai création site internet
 - [ ] Nom de domaine : comment bien le choisir pour son entreprise · Création de site · choisir nom de domaine entreprise
 - [x] CRM sur mesure ou logiciel du marché : comment choisir · Logiciel sur mesure · crm sur mesure ou logiciel
 - [ ] Pourquoi votre site n'apparaît pas sur Google (et comment y remédier) · Référencement local · mon site n'apparaît pas sur google

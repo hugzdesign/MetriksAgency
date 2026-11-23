@@ -565,4 +565,100 @@ Le budget vous freine ? L'article sur [le prix d'un site internet](/ressources/p
 
 Pendant un [diagnostic offert](/contact/) de 45 minutes, MetriKs regarde avec vous d'où viennent vos clients et ce qui vous manque. Si un site vous sert, découvrez [la création de site internet](/creation-site-internet/). Vous préférez d'abord vous situer seul ? Faites [l'autodiagnostic en une minute](/contact/#autodiagnostic).`,
   },
+  {
+    slug: "delai-creation-site-vitrine",
+    title: "Combien de temps faut-il pour créer un site vitrine ?",
+    seoTitle: "Combien de temps pour créer un site vitrine ? · MetriKs",
+    desc: "Contenu, maquette, validations, mise en ligne, Google : ce qui fait vraiment la durée de création d'un site vitrine, et comment ne pas perdre de semaines.",
+    cat: "Création de site",
+    read: 6,
+    date: "2026-11-23",
+    intro: "Vous avez décidé de créer votre site et vous aimeriez savoir quand il sera en ligne. La réponse dépend moins du prestataire que de ce que vous avez déjà sous la main. Voici comment se répartit le temps, et comment éviter d'en perdre.",
+    md: `## Ce qui fait vraiment la durée
+
+On imagine souvent que le délai tient au travail technique. En pratique, deux choses pèsent bien plus lourd.
+
+- **Le contenu.** Les textes, les photos, la liste de vos prestations, vos horaires, votre zone d'intervention. Un site ne part pas en ligne vide.
+- **Les allers-retours.** Chaque maquette, chaque page attend votre avis. Une validation qui traîne une semaine décale tout le reste d'une semaine.
+
+Deux sites de même taille peuvent donc sortir à des dates très différentes. Celui dont le client a ses photos prêtes et répond vite part en ligne bien avant l'autre.
+
+## Les étapes d'un site vitrine
+
+Un site vitrine suit presque toujours le même chemin. Voici ce qui se passe à chaque étape, et ce qu'on attend de vous.
+
+| Étape | Ce qui se passe | Ce qui dépend de vous |
+| --- | --- | --- |
+| Échange de départ | On parle de votre métier, de vos clients, de vos objectifs | Trouver un créneau pour ce rendez-vous |
+| Contenu | On rassemble textes, photos, logo et informations pratiques | Fournir vos éléments, ou relire ceux qu'on rédige pour vous |
+| Maquette | Le futur site est dessiné, page par page | Donner votre avis, puis valider |
+| Développement | Le site est construit, rapide et lisible sur téléphone | Relire les pages au fur et à mesure |
+| Mise en ligne | Le site part sur votre nom de domaine | Donner les accès nécessaires |
+
+Les étapes se suivent. Une maquette ne se dessine pas sans contenu, et un site ne se construit pas sans maquette validée. C'est pour ça qu'**un retard au début se retrouve toujours à la fin**.
+
+## Ce qui ralentit le plus souvent un projet
+
+### Les textes qu'on repousse
+
+Écrire sur son propre métier est plus difficile qu'il n'y paraît. Beaucoup de projets attendent des semaines une page de présentation ou la description des prestations. Si vous savez que vous n'aurez pas le temps, dites-le dès le départ. Faire rédiger les textes coûte un peu plus, mais fait souvent gagner beaucoup de temps.
+
+### Les photos introuvables
+
+Les photos de vos chantiers ou de votre boutique dorment sur trois téléphones et un vieil ordinateur. Rassemblez-les tôt. S'il vous manque de bonnes photos, prévoyez une séance : il faut un jour sans pluie, un chantier fini, un créneau libre. L'article sur [les 7 éléments qui font décrocher le téléphone](/ressources/site-artisan-elements-indispensables/) explique pourquoi elles comptent autant.
+
+### Les accès perdus
+
+Votre nom de domaine a été acheté il y a des années par un ancien prestataire, ou par un proche. Personne ne retrouve l'identifiant. Récupérer ces accès peut prendre du temps, alors **cherchez-les dès le premier jour**, pas la veille de la mise en ligne.
+
+### Les mentions légales oubliées
+
+Un site d'entreprise doit afficher certaines informations : votre nom ou votre dénomination, votre adresse, vos coordonnées, votre numéro d'immatriculation, votre numéro de TVA s'il existe et les coordonnées de l'hébergeur. La liste complète figure sur [entreprendre.service-public.fr](https://entreprendre.service-public.gouv.fr/vosdroits/F37351). Préparez ces informations avec le reste. Il serait dommage de bloquer une mise en ligne pour un numéro d'immatriculation.
+
+### Les avis qui se contredisent
+
+Vous montrez la maquette à votre associé, à votre conjoint, à votre comptable. Chacun a son idée. Désignez **une seule personne qui valide**, et rassemblez les remarques dans un seul message.
+
+## Les délais qui ne dépendent de personne
+
+Une fois le site en ligne, deux délais échappent à votre contrôle, comme à celui de votre prestataire.
+
+### Google doit découvrir votre site
+
+Un site tout neuf n'apparaît pas sur Google le jour de sa mise en ligne. Google doit d'abord explorer les pages, puis les indexer. Pour un site nouveau, Google indique qu'il peut s'écouler [entre un ou deux jours et quelques semaines](https://support.google.com/webmasters/answer/7474347?hl=fr). Demander l'exploration dans la Search Console aide, mais Google précise que [l'exploration peut prendre plusieurs jours, voire plusieurs semaines](https://developers.google.com/search/docs/crawling-indexing/ask-google-to-recrawl?hl=fr), et que répéter la demande n'accélère rien.
+
+Apparaître sur Google et apparaître en haut de la page sont deux choses différentes. Sortir sur votre métier dans votre ville demande un travail dans la durée : c'est le rôle du [référencement local](/referencement-local/).
+
+### Votre fiche Google doit être validée
+
+Si vous créez votre fiche d'établissement Google en même temps que le site, pensez à sa validation. Google annonce un examen qui prend [jusqu'à cinq jours ouvrés](https://support.google.com/business/answer/7107242?hl=fr), parfois plus, parfois aucun. Lancez-la tôt, sans attendre le site. Les réglages à faire ensuite sont détaillés dans le guide de [la fiche Google](/ressources/fiche-google-business-profile/).
+
+> Un site en ligne n'est pas encore un site trouvé. Laissez à Google le temps de découvrir vos pages, et ne vous inquiétez pas si rien ne bouge les premiers jours.
+
+## Comment gagner du temps
+
+Le meilleur moyen d'avoir un site vite, c'est d'arriver préparé. Avant le premier rendez-vous, rassemblez :
+
+1. **La liste de vos prestations**, avec les mots qu'emploient vos clients.
+2. **Vos photos**, dans un seul dossier.
+3. **Votre logo** en bonne qualité, si vous en avez un. Sinon, parlez-en tout de suite : une [identité visuelle](/identite-visuelle/) se prévoit avant le site.
+4. **Vos informations pratiques** : horaires, zone d'intervention, téléphone, adresse.
+5. **Vos accès** : nom de domaine, fiche Google, ancien site s'il existe.
+6. **Vos informations légales** : immatriculation, TVA, assurance si votre métier l'exige.
+7. **Deux ou trois sites que vous aimez**, et ce qui vous plaît dedans.
+
+Bloquez aussi un créneau chaque semaine pour répondre aux questions et valider. Une heure régulière vaut mieux qu'un après-midi par mois.
+
+## Méfiez-vous des promesses trop belles
+
+On vous promet un site « en ligne en 48 heures » ? Posez une question simple : avec quels textes et quelles photos ? Sans votre contenu, un site rapide risque surtout de ressembler à tous les autres. À l'inverse, un projet sans calendrier finit souvent par s'essouffler.
+
+Ce qui compte, c'est **un calendrier écrit dès le départ**, qui dit ce que fait le prestataire et ce que vous devez fournir, étape par étape. Le délai se discute en même temps que le budget : l'article sur [le prix d'un site internet](/ressources/prix-site-internet-artisan-commercant/) donne les ordres de grandeur du marché.
+
+## Connaître le délai de votre projet
+
+Chez MetriKs, le calendrier est fixé dès le départ, et vous suivez chaque étape dans votre [espace client](/methode/) : ce qui est fait, ce qui arrive, ce que MetriKs attend de vous. Pour un délai précis, il faut parler de votre projet.
+
+Réservez le [diagnostic offert](/contact/) de 45 minutes, découvrez [la création de site internet](/creation-site-internet/), ou faites d'abord [l'autodiagnostic en une minute](/contact/#autodiagnostic).`,
+  },
 ];
